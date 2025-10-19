@@ -7,54 +7,17 @@ export default function GachaPage(){
     const [showInventory, setShowInventory] = useState(false);
     const [selectedItemId, setSelectedItemId] = useState(1); // Track selected item by ID
 
-    const [showRoll, setShowRoll] = useState(false);
-    const [rolledItem, setRolledItem] = useState(null);
-
-    const initialPool = [
-        { id: 1, name: "Rabbit", rarity: "Common", image: "images/bunny.svg", rarityColor: "border-blue-400" },
-        { id: 2, name: "Bear", rarity: "Rare", image: "images/bear.svg", rarityColor: "border-cyan-400" },
-        { id: 3, name: "Deer", rarity: "Legendary", image: "images/deer.svg", rarityColor: "border-purple-400" },
-    ];
-
-    function rollGacha() {
-        const probabilities = {
-            Common: 0.7,
-            Rare: 0.25,
-            Legendary: 0.05
-        };
-
-        const rand = Math.random();
-        let rarity;
-        if (rand < probabilities.Legendary) {
-            rarity = "Legendary";
-        } else if (rand < probabilities.Legendary + probabilities.Rare) {
-            rarity = "Rare";
-        } else {
-            rarity = "Common";
-        }
-
-        // Filter pool to matching rarity
-        const filteredPool = initialPool.filter(item => item.rarity === rarity);
-
-        // Pick a random item from that rarity
-        const newItem = filteredPool[Math.floor(Math.random() * filteredPool.length)];
-        
-        setRolledItem(newItem);
-        setShowRoll(true);
-    }
-
-    
     const inventoryItems = [
         {
             id: 1,
             name: "Rabbit",
             rarity: "Common",
-            image: "/images/bunny.svg", 
+            image: "/images/bunny_logo.svg",
             rarityColor: "border-green-400",
         },
         {
             id: 2,
-            name: "Bear", 
+            name: "Bear",
             rarity: "Rare",
             image: "/images/bear.svg",
             rarityColor: "border-cyan-400",
@@ -62,7 +25,7 @@ export default function GachaPage(){
         {
             id: 3,
             name: "Deer",
-            rarity: "Legendary", 
+            rarity: "Legendary",
             image: "/images/deer.svg",
             rarityColor: "border-purple-400",
         }
@@ -112,19 +75,13 @@ export default function GachaPage(){
                         height={600}
                         className="object-fill"
                     />
-                    
+
                     {/* Buttons */}
                     <div className="flex flex-col space-y-4 w-full max-w-xs">
-                        <button 
-                            onClick={() => {
-                                console.log("Roll button clicked");
-                                rollGacha();
-                            }}
-                            className="font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg"
-                            >
+                        <button className="font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg">
                             Roll
                         </button>
-                        <button 
+                        <button
                             onClick={() => {
                                 console.log("Inventory button clicked");
                                 setShowInventory(true);
@@ -134,7 +91,7 @@ export default function GachaPage(){
                             Inventory
                         </button>
                     </div>
-                </div>  
+                </div>
             </div>
 
             {/* Inventory Model */}
@@ -142,7 +99,7 @@ export default function GachaPage(){
                 <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm">
                     <div className="relative bg-[#2B295A] rounded-2xl p-10 max-w-5xl w-full mx-6 max-h-[85vh] overflow-y-auto">
                         {/* Close button */}
-                        <button 
+                        <button
                             onClick={() => {
                                 console.log("Close button clicked");
                                 setShowInventory(false);
@@ -151,22 +108,22 @@ export default function GachaPage(){
                         >
                             X
                         </button>
-                        
+
                         {/* Header */}
                         <h2 className="font-modern-antiqua text-5xl text-white text-center mb-12 font-bold">
                             INVENTORY
                         </h2>
-                        
+
                         {/* Inventory Grid */}
                         <div className="grid grid-cols-3 gap-12">
                             {inventoryItems.map((item) => (
                                 <div key={item.id} className="flex flex-col items-center space-y-4">
                                     {/* Animal SVG Box */}
-                                    <div 
+                                    <div
                                         onClick={() => setSelectedItemId(item.id)}
                                         className={`relative bg-[#0B093A] rounded-xl border-2 ${
-                                            selectedItemId === item.id 
-                                                ? 'border-[#FFD700] shadow-lg ' 
+                                            selectedItemId === item.id
+                                                ? 'border-[#FFD700] shadow-lg '
                                                 : 'border-gray-600'
                                         } transition-all duration-300 hover:scale-105 w-75 h-75 overflow-hidden cursor-pointer`}
                                     >
