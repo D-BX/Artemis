@@ -14,6 +14,7 @@ interface MappedCustomer {
 
 export default function LandingPage(){
     const [firstName, setFirstName] = useState<string>("");
+    const [showTyping, setShowTyping] = useState<boolean>(false);
 
     useEffect(() => {
         const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5001";
@@ -37,6 +38,8 @@ export default function LandingPage(){
         }
 
         fetchName();
+        // Trigger typing animation after component mounts
+        setTimeout(() => setShowTyping(true), 100);
     }, []);
 
     return(
@@ -73,9 +76,11 @@ export default function LandingPage(){
                     className="object-contain"
 
                 />
-                <p className="font-mono text-2xl text-[#FFE8B3] text-center ">
-                    Hello {firstName && `${firstName}, `}My name is Artemis
-                </p>
+                <div className="w-full flex justify-center">
+                    <p className={`font-mono text-3xl text-[#FFE8B3] text-center ${showTyping ? 'typing-text' : 'opacity-0'}`}>
+                        Hello {firstName && `${firstName}, `}I am Artemis
+                    </p>
+                </div>
 
             </div>
             {/* FIX: need to fix colors and change the text and all that we can put like a team pic or sum idk */}
