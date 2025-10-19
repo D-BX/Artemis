@@ -13,9 +13,9 @@ export default function GachaPage(){
     const [isAnimating, setIsAnimating] = useState(false);
 
     const initialPool = [
-        { id: 1, name: "Rabbit", rarity: "Common", image: "images/bunny.svg", logo: "/images/bunny_logo.svg"},
-        { id: 2, name: "Bear", rarity: "Rare", image: "images/bear.svg", logo: "/images/bear_logo.svg"},
-        { id: 3, name: "Deer", rarity: "Legendary", image: "images/deer.svg", logo: "/images/deer_logo.svg"},
+        { id: 1, name: "Rabbit", rarity: "Common", image: "images/bunny.svg", logo: "/images/bunny_logo.svg", rarityColor: "border-blue-400" },
+        { id: 2, name: "Bear", rarity: "Rare", image: "images/bear.svg", logo: "/images/bear_logo.svg", rarityColor: "border-cyan-400" },
+        { id: 3, name: "Deer", rarity: "Legendary", image: "images/deer.svg", logo: "/images/deer_logo.svg", rarityColor: "border-purple-400" },
     ];
 
     function rollGacha() {
@@ -49,6 +49,8 @@ export default function GachaPage(){
             setRolledItem(newItem);
             setIsAnimating(false);
         }, 3000); // match this to your GIF duration
+
+        localStorage.setItem("selectedAnimalId", String(newItem.id));
     }
 
 
