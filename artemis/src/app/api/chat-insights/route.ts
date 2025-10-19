@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const backendUrl = process.env.BACKEND_URL || "http://localhost:5000";
+    const backendUrl = process.env.BACKEND_URL || "http://localhost:5001";
 
     const response = await fetch(`${backendUrl}/api/chat`, {
       method: "POST",

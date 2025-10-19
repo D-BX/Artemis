@@ -6,13 +6,27 @@ from typing import List, Dict, Any
 class StatementParser:
     def __init__(self):
         self.categories = {
-            'restaurants': ['restaurant', 'cafe', 'food', 'dining', 'pizza', 'burger', 'sushi', 'bar', 'grill', 'kitchen', 'coffee', 'bakery'],
-            'travel': ['airline', 'hotel', 'travel', 'uber', 'lyft', 'taxi', 'airbnb', 'flight', 'airways'],
-            'merchandise': ['amazon', 'walmart', 'target', 'store', 'shop', 'retail', 'mall', 'ebay'],
-            'gas': ['gas', 'fuel', 'shell', 'chevron', 'exxon', 'mobil', 'bp', 'petrol'],
-            'groceries': ['grocery', 'market', 'supermarket', 'whole foods', 'trader', 'safeway', 'kroger'],
-            'fitness': ['gym', 'fitness', 'sports', 'yoga', 'athletic'],
-            'subscriptions': ['netflix', 'spotify', 'hulu', 'subscription', 'prime', 'apple music', 'disney'],
+            'Travel & Entertainment': [
+                'airline', 'hotel', 'travel', 'uber', 'lyft', 'taxi', 'airbnb', 'flight', 'airways',
+                'amtrak', 'bus', 'transit', 'entertainment', 'flix', 'expedia', 'united', 'peter pan',
+                'mbta', 'trip'
+            ],
+            'Restaurants': [
+                'restaurant', 'cafe', 'food', 'dining', 'pizza', 'burger', 'sushi', 'bar', 'grill',
+                'kitchen', 'coffee', 'bakery', 'chick-fil-a', 'panda', 'fogo', 'ichiban', 'whataburger',
+                'eats', 'tst*', 'moms kitchen'
+            ],
+            'Merchandise': [
+                'amazon', 'walmart', 'target', 'store', 'shop', 'retail', 'mall', 'ebay', 'stockx',
+                'bloomingdales', 'ulta', 'face shop', 'clairo', 'meta store'
+            ],
+            'Gas Stations': ['gas', 'fuel', 'shell', 'chevron', 'exxon', 'mobil', 'bp', 'petrol'],
+            'Supermarkets': [
+                'grocery', 'market', 'supermarket', 'whole foods', 'trader', 'safeway', 'kroger',
+                'star market'
+            ],
+            'Services': ['ups', 'shipping', 'service', 'delivery'],
+            'Department Store': ['department', 'bloomingdale', 'macys', 'nordstrom'],
         }
 
     def categorize_transaction(self, merchant: str) -> str:
@@ -20,7 +34,7 @@ class StatementParser:
 
         for category, keywords in self.categories.items():
             if any(keyword in merchant_lower for keyword in keywords):
-                return category.capitalize()
+                return category
 
         return 'Other'
 
@@ -108,9 +122,11 @@ class StatementParser:
                 'totalSpent': 0,
                 'categories': {},
                 'weeklySpending': [],
+                'dailySpending': [],
                 'spendingRate': 0,
                 'cashStability': 0,
-                'budgetOverage': 0
+                'budgetOverage': 0,
+                'daysInPeriod': 0
             }
 
         # Calculate totals by category
@@ -123,7 +139,18 @@ class StatementParser:
             categories[category] = categories.get(category, 0) + amount
             total_spent += amount
 
-        # Calculate weekly spending
+        # Calculate daily spending
+        daily_map = {}
+        for transaction in transactions:
+            date = transaction['date']
+            daily_map[date] = daily_map.get(date, 0) + transaction['amount']
+
+        daily_spending = [
+            {'date': date, 'amount': round(amount, 2)}
+            for date, amount in sorted(daily_map.items())
+        ]
+
+        # Calculate weekly spending for the chart
         weekly_map = {}
         for transaction in transactions:
             date_parts = transaction['date'].split('/')
@@ -146,16 +173,22 @@ class StatementParser:
             for week, amount in weekly_map.items()
         ]
 
-        # Calculate metrics
-        if weekly_spending:
-            avg_weekly = sum(w['amount'] for w in weekly_spending) / len(weekly_spending)
-            spending_rate = round(avg_weekly, 2)
+        # Calculate metrics based on days, not weeks
+        num_days = len(daily_map)
+        if num_days > 0:
+            spending_rate = round(total_spent / num_days, 2)
 
-            variance = sum((w['amount'] - avg_weekly) ** 2 for w in weekly_spending) / len(weekly_spending)
+            # Calculate stability based on daily variance (coefficient of variation)
+            avg_daily = total_spent / num_days
+            variance = sum((amount - avg_daily) ** 2 for amount in daily_map.values()) / num_days
             std_dev = variance ** 0.5
 
-            if avg_weekly > 0:
-                cash_stability = max(0, 100 - round((std_dev / avg_weekly) * 100))
+            if avg_daily > 0:
+                # Coefficient of variation (CV) - lower is more stable
+                cv = (std_dev / avg_daily) * 100
+                # Convert to stability score (0-100, where 100 is most stable)
+                # A CV of 0% = 100 stability, CV of 100%+ = 0 stability
+                cash_stability = max(0, min(100, round(100 - cv)))
             else:
                 cash_stability = 100
         else:
@@ -163,15 +196,18 @@ class StatementParser:
             cash_stability = 0
 
         monthly_budget = 2000
-        budget_overage = round(((total_spent - monthly_budget) / monthly_budget) * 100) if monthly_budget > 0 else 0
+        budget_overage = round(total_spent - monthly_budget, 2)
 
         return {
             'totalSpent': round(total_spent, 2),
             'categories': {k: round(v, 2) for k, v in categories.items()},
             'weeklySpending': weekly_spending,
+            'dailySpending': daily_spending,
             'spendingRate': spending_rate,
             'cashStability': cash_stability,
-            'budgetOverage': budget_overage
+            'budgetOverage': budget_overage,
+            'daysInPeriod': num_days,
+            'monthlyBudget': monthly_budget
         }
 
     def parse_statement(self, pdf_file) -> Dict[str, Any]:
