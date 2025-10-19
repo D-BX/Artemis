@@ -135,14 +135,14 @@ export default function GachaPage(){
                                             className="object-contain absolute bottom-0 left-1/2 transform -translate-x-1/2"
                                         />
                                     </div>
-
+                                    
                                     {/* Text content outside the box */}
                                     <div className="text-center space-y-1">
                                         {/* Animal Name */}
                                         <h3 className="font-mono text-white text-2xl font-semibold">
                                             {item.name}
                                         </h3>
-
+                                        
                                         {/* Rarity */}
                                         <p className="text-gray-300 text-m">
                                             {item.rarity}
@@ -151,11 +151,37 @@ export default function GachaPage(){
                                 </div>
                             ))}
                         </div>
-
+                        
                     </div>
                 </div>
             )}
 
+
+            {/* Roll Result Modal */}
+            {showRoll && (
+                <div
+                    onClick={() => setShowRoll(false)}
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm"
+                >
+                    <div className="absolute w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] rounded-full bg-[#0B093A] blur-[125px]"></div>
+
+                    <div className="flex flex-col items-center justify-center p-8 rounded-2xl z-10">
+                        <h2 className="font-modern-antiqua text-5xl text-[#FFE8B3] text-center mb-8 font-bold">
+                            YOU GOT...
+                        </h2>
+                        <img
+                            src={`/${rolledItem.image}`}
+                            className="w-50 h-50 mb-6"
+                        />
+                        <h3 className="font-modern-antiqua text-5xl font-bold text-[#FFE8B3]">
+                            {rolledItem.name}!
+                        </h3>
+                        <p className="font-mono text-lg text-[#D9D6B2] mt-2">
+                            {rolledItem.rarity}
+                        </p>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
