@@ -11,7 +11,7 @@ export default function Home() {
     <div>
         {/* <ScrollToTop /> */}
         <LandingPage />
-        <About />
+        {/* <About /> */}
         {/* <Gacha /> */}
     </div>
   );
