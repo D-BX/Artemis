@@ -165,7 +165,7 @@ export default function GachaPage(){
                         </button>
 
                         {/* Header */}
-                        <h2 className="font-modern-antiqua text-5xl text-white text-center mb-12 font-bold">
+                        <h2 className="font-modern-antiqua text-5xl text-white text-center mb-12">
                             INVENTORY
                         </h2>
 

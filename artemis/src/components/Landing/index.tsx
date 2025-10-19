@@ -55,15 +55,9 @@ export default function LandingPage(){
                     className="object-fill"
 
                 />
-                <p className="font-mono text-4xl text-[#FFE8B3] text-center ">
-                    Hello, My name is Artemis
+                <p className="typing-text font-mono text-3xl text-[#FFE8B3] text-center">
+                    Hello, my name is Artemis
                 </p>
-                <Link
-                    href="/Report"
-                    className="inline-block rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 transition"
-                >
-                    Credit Report
-                </Link>
             </div>
             {/* FIX: need to fix colors and change the text and all that we can put like a team pic or sum idk */}
             {/* <div className="absolute inset-0 flex items-end justify-center pb-20">
