@@ -7,6 +7,41 @@ export default function GachaPage(){
     const [showInventory, setShowInventory] = useState(false);
     const [selectedItemId, setSelectedItemId] = useState(1); // Track selected item by ID
 
+    const [showRoll, setShowRoll] = useState(false);
+    const [rolledItem, setRolledItem] = useState(null);
+
+    const initialPool = [
+        { id: 1, name: "Rabbit", rarity: "Common", image: "images/bunny.svg", rarityColor: "border-blue-400" },
+        { id: 2, name: "Bear", rarity: "Rare", image: "images/bear.svg", rarityColor: "border-cyan-400" },
+        { id: 3, name: "Deer", rarity: "Legendary", image: "images/deer.svg", rarityColor: "border-purple-400" },
+    ];
+
+    function rollGacha() {
+        const probabilities = {
+            Common: 0.7,
+            Rare: 0.25,
+            Legendary: 0.05
+        };
+
+        const rand = Math.random();
+        let rarity;
+        if (rand < probabilities.Legendary) {
+            rarity = "Legendary";
+        } else if (rand < probabilities.Legendary + probabilities.Rare) {
+            rarity = "Rare";
+        } else {
+            rarity = "Common";
+        }
+
+        // Filter pool to matching rarity
+        const filteredPool = initialPool.filter(item => item.rarity === rarity);
+
+        // Pick a random item from that rarity
+        const newItem = filteredPool[Math.floor(Math.random() * filteredPool.length)];
+
+        setRolledItem(newItem);
+        setShowRoll(true);
+    }
     const inventoryItems = [
         {
             id: 1,
@@ -135,14 +170,14 @@ export default function GachaPage(){
                                             className="object-contain absolute bottom-0 left-1/2 transform -translate-x-1/2"
                                         />
                                     </div>
-                                    
+
                                     {/* Text content outside the box */}
                                     <div className="text-center space-y-1">
                                         {/* Animal Name */}
                                         <h3 className="font-mono text-white text-2xl font-semibold">
                                             {item.name}
                                         </h3>
-                                        
+
                                         {/* Rarity */}
                                         <p className="text-gray-300 text-m">
                                             {item.rarity}
@@ -151,7 +186,7 @@ export default function GachaPage(){
                                 </div>
                             ))}
                         </div>
-                        
+
                     </div>
                 </div>
             )}
