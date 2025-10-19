@@ -28,11 +28,11 @@ export default function LandingPage(){
                 />
             </div>
 
-            <div className="absolute z-20 left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute z-20 left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2">
                 <Image
-                    src="/images/bunny.svg"
+                    src="/images/bunny_logo.svg"
                     alt="bunny logo"
-                    width={600}
+                    width={400}
                     height={600}
                     className="object-fill"
 
@@ -48,6 +48,50 @@ export default function LandingPage(){
                 </Link>
             </div>
 
+            {/* <div className="absolute z-20 left-1/2 top-[0%] -translate-x-1/2 -translate-y-1/2 flex items-start justify-center pointer-events-none">
+                <div className="relative w-[400px] h-[200px]">
+                    {/* Static sun rays with pulse animation in perfect semicircle
+                    {[...Array(13)].map((_, i) => {
+                    const angle = (i * 15) - 90 // Perfect semicircle: -90 to 90 degrees (180 degree arc)
+                    const length = i % 3 === 0 ? 80 : i % 2 === 0 ? 60 : 70
+                    const isDotted = i % 4 === 1 || i % 4 === 2
+                    return (
+                        <div
+                        key={i}
+                        className="absolute top-[50px] left-1/2 origin-bottom"
+                        style={{
+                            transform: `translateX(-50%) rotate(${angle}deg)`,
+                        }}
+                        >
+                        {isDotted ? (
+                            <div className="flex flex-col items-center gap-2">
+                            <div
+                                className="w-1.5 h-1.5 bg-[#FFE8B3] rounded-full animate-pulse"
+                                style={{ animationDelay: `${i * 0.1}s` }}
+                            />
+                            <div
+                                className="w-1.5 h-1.5 bg-[#FFE8B3] rounded-full animate-pulse"
+                                style={{ animationDelay: `${i * 0.1 + 0.2}s` }}
+                            />
+                            <div
+                                className="w-1.5 h-1.5 bg-[#FFE8B3] rounded-full animate-pulse"
+                                style={{ animationDelay: `${i * 0.1 + 0.4}s` }}
+                            />
+                            </div>
+                        ) : (
+                            <div
+                            className="w-1.5 bg-[#FFE8B3] rounded-full animate-pulse"
+                            style={{
+                                height: `${length}px`,
+                                animationDelay: `${i * 0.1}s`
+                            }}
+                            />
+                        )}
+                        </div>
+                    )
+                    })}
+                </div>
+            </div> */}
         </div>
     )
 }
