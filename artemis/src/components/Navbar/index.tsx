@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
       <div className="relative">
         <Image
-          src="/images/navbar.svg"
+          src="/images/finalnav.svg"
           alt="Navigation bar"
           width={339}
           height={75}

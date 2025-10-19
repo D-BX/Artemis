@@ -2,7 +2,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap'); */
 
 :root {
-  --background: #ffffff;
+  --background: #7a506a;
   --foreground: #171717;
 }
 
@@ -23,7 +23,7 @@
   src: url('/fonts/SometypeMono-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap; 
+  font-display: swap;
 } */
 
 /* @media (prefers-color-scheme: dark) {
@@ -56,14 +56,14 @@ body {
   background: linear-gradient(180deg, #FFE8B3, #f5d982, #e6c767);
   border-radius: 12px;
   border: 3px solid #0f0f23;
-  box-shadow: 
+  box-shadow:
     0 0 10px rgba(255, 232, 179, 0.5),
     inset 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #FFE8B3, #FFE8B3, #f5d982);
-  box-shadow: 
+  box-shadow:
     0 0 15px rgba(255, 232, 179, 0.8),
     inset 0 0 10px rgba(255, 255, 255, 0.3);
 }
@@ -108,3 +108,26 @@ body {
   animation-fill-mode: forwards;
 }
 
+@keyframes fade-out-soft {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+.fade-out {
+  animation: fade-out-soft 0.6s ease forwards;
+}
+.typing-text {
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #FFE8B3; /* typing cursor */
+  animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}

@@ -7,7 +7,7 @@ export default function GachaPage(){
     const [showInventory, setShowInventory] = useState(false);
     const [selectedItemId, setSelectedItemId] = useState(1); // Track selected item by ID
 
-    // for gacha roll 
+    // for gacha roll
     const [showRoll, setShowRoll] = useState(false);
     const [rolledItem, setRolledItem] = useState(null);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -83,22 +83,22 @@ export default function GachaPage(){
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#36336A] via-[#5a5080] to-[#7a506a]" />
 
-            <div className="absolute z-20 left-0 top-4 -translate-x-1/2" >
+            <div className="absolute z-20 left-40 top-4 -translate-x-1/2" >
                 <Image
                     src="/images/starL.svg"
                     alt="stars on the left side"
-                    width={600}
-                    height={600}
+                    width={350}
+                    height={350}
                     className="object-contain"
                 />
             </div>
 
-            <div className="absolute z-20 right-0 top-4 translate-x-1/2" >
+            <div className="absolute z-20 right-40 top-4 translate-x-1/2" >
                 <Image
                     src="/images/starR.svg"
                     alt="stars on the right side"
-                    width={600}
-                    height={600}
+                    width={500}
+                    height={500}
                     className="object-contain"
                 />
             </div>
@@ -167,8 +167,8 @@ export default function GachaPage(){
                         </button>
 
                         {/* Header */}
-                        <h2 className="font-modern-antiqua text-5xl text-white text-center mb-12 font-bold">
-                            INVENTORY
+                        <h2 className="font-modern-antiqua text-5xl text-white text-center mb-12">
+                            CHOOSE YOUR ASSISTANT
                         </h2>
 
                         {/* Inventory Grid */}
@@ -177,7 +177,10 @@ export default function GachaPage(){
                                 <div key={item.id} className="flex flex-col items-center space-y-4">
                                     {/* Animal SVG Box */}
                                     <div
-                                        onClick={() => setSelectedItemId(item.id)}
+                                        onClick={() => {
+                                            setSelectedItemId(item.id);
+                                            localStorage.setItem("selectedAnimalId", String(item.id));
+                                        }}
                                         className={`relative bg-[#0B093A] rounded-xl border-2 ${
                                             selectedItemId === item.id
                                                 ? 'border-[#FFD700] shadow-lg '
