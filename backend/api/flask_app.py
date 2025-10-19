@@ -10,6 +10,7 @@ from llm.credit_analyst import CreditAnalyst
 from ml.credit_risk_model import CreditRiskModel
 from data.prediction_manager import PredictionManager
 from api.pdf_parser import StatementParser
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -25,6 +26,48 @@ except Exception as e:
 
 credit_analyst = CreditAnalyst()
 statement_parser = StatementParser()
+
+def load_customer_map():
+    try:
+        path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'outputs', 'nessie_customers_map.json')
+        if os.path.exists(path):
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+    except Exception as e:
+        print(f"Could not load customer map: {e}")
+    return {}
+
+@app.route('/api/customer-name', methods=['GET'])
+def customer_name():
+    """
+    Query param: csv_customer_id
+    Returns: { customer_id: <csv id>, name: "First Last", nessie_customer_id: <id> }
+    """
+    csv_id = request.args.get('csv_customer_id')
+    if not csv_id:
+        return jsonify({'error': 'csv_customer_id is required'}), 400
+    mapping = load_customer_map()
+    data = mapping.get(csv_id)
+    if not data:
+        return jsonify({'error': 'customer not found'}), 404
+    name = f"{data.get('first_name','')} {data.get('last_name','')}".strip()
+    return jsonify({
+        'customer_id': csv_id,
+        'nessie_customer_id': data.get('nessie_customer_id'),
+        'name': name,
+    })
+
+@app.route('/api/customers-mapped', methods=['GET'])
+def customers_mapped():
+    mapping = load_customer_map()
+    out = []
+    for csv_id, v in mapping.items():
+        out.append({
+            'customer_id': csv_id,
+            'nessie_customer_id': v.get('nessie_customer_id'),
+            'name': f"{v.get('first_name','')} {v.get('last_name','')}".strip(),
+        })
+    return jsonify(out)
 
 @app.route('/api/parse-statement', methods=['POST'])
 def parse_statement():

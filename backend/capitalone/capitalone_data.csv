@@ -1,0 +1,501 @@
+account_id,customer_id,customer_name,amount_spent,card_age_months,merchant,city,state,purchase_date,category
+10001,20001,Chloe Lee,42.39,36,HomeStyle,Phoenix,AZ,2025-08-18,Grocery
+10002,20002,William Baker,1338.81,12,GameHub,San Diego,CA,2025-08-05,Food
+10003,20003,Liam Davis,352.83,78,Corner Cafe,Orlando,FL,2025-08-26,PersonalCare
+10004,20004,Ethan Thomas,885.95,104,Corner Cafe,Baltimore,MD,2025-08-21,PersonalCare
+10005,20005,Lucas Martinez,237.44,98,BookBarn,Boston,MA,2025-08-12,Office
+10006,20006,Noah Gonzalez,1272.0,78,Cup & Go,San Jose,CA,2025-08-06,Auto
+10007,20007,Harper Lee,1459.81,49,Quick Gas,Orlando,FL,2025-09-07,Pet
+10008,20008,Amelia Davis,1058.33,6,FurnishCo,Phoenix,AZ,2025-09-07,Gas
+10009,20009,Sebastian Lopez,1300.39,49,Cup & Go,New York,NY,2025-09-16,Entertainment
+10010,20010,Aiden Gonzalez,318.21,35,NewsStand,Nashville,TN,2025-08-10,Entertainment
+10011,20011,Harper Baker,370.99,60,VendStation,Denver,CO,2025-08-29,Apparel
+10012,20012,Mason Wright,1165.12,30,Bakery,Dallas,TX,2025-09-10,Office
+10013,20013,Mia Smith,320.42,73,NewsStand,Miami,FL,2025-08-28,Digital
+10014,20014,Ella Adams,1372.25,59,AirFly,Denver,CO,2025-08-18,Home
+10015,20015,Levi Lewis,810.77,96,GameHub,San Diego,CA,2025-09-21,Pet
+10016,20016,Ethan Patel,766.74,12,AppStore,Dallas,TX,2025-08-15,Travel
+10017,20017,Chloe Brown,1189.16,55,SalonPro,Houston,TX,2025-09-19,Office
+10018,20018,Logan Thomas,796.03,71,Corner Cafe,Jacksonville,FL,2025-08-15,Health
+10019,20019,Zoe Allen,513.56,38,TechWave,Seattle,WA,2025-09-28,Food
+10020,20020,Levi Adams,1080.92,65,AppStore,Seattle,WA,2025-10-04,Grocery
+10021,20021,Sebastian Allen,451.17,82,Subwich,Las Vegas,NV,2025-08-26,Travel
+10022,20022,Aiden Wright,246.52,100,Subwich,Nashville,TN,2025-08-01,Apparel
+10023,20023,Charlotte Johnson,172.24,47,Bakery,San Jose,CA,2025-09-09,Home
+10024,20024,Olivia Lopez,1317.62,11,Quick Gas,Milwaukee,WI,2025-10-02,Gas
+10025,20025,Zoe Lewis,1149.92,17,FurnishCo,Columbus,OH,2025-10-10,Entertainment
+10026,20026,Mia Clark,1309.29,55,FitGear,Nashville,TN,2025-10-09,Sports
+10027,20027,Benjamin Garcia,601.49,86,DriveThru,Portland,OR,2025-09-26,Other
+10028,20028,James Lee,375.62,9,BookBarn,Austin,TX,2025-10-10,Home
+10029,20029,Amelia Lopez,15.75,91,DriveThru,Dallas,TX,2025-08-30,Gas
+10030,20030,Elijah Nguyen,1290.15,10,Subwich,Phoenix,AZ,2025-09-05,Digital
+10031,20031,Jackson Lewis,202.81,120,GameHub,Philadelphia,PA,2025-09-30,Home
+10032,20032,Jack Taylor,1212.21,25,WholeBuy,Boston,MA,2025-09-25,Pet
+10033,20033,Grace Anderson,703.2,94,ElectroMart,Jacksonville,FL,2025-08-13,Electronics
+10034,20034,Ella Baker,512.26,111,WholeBuy,Phoenix,AZ,2025-08-25,Sports
+10035,20035,Harper Thomas,214.57,24,Cup & Go,New York,NY,2025-09-01,Gas
+10036,20036,James Rivera,1292.72,71,WholeBuy,Dallas,TX,2025-10-09,Food
+10037,20037,Liam Nelson,1131.58,31,StreamingCo,San Diego,CA,2025-10-02,Digital
+10038,20038,Jackson Green,604.56,8,StreamingCo,Minneapolis,MN,2025-08-01,Office
+10039,20039,Mia Nelson,1177.19,59,PharmaPlus,San Diego,CA,2025-10-02,Travel
+10040,20040,Jackson Garcia,330.46,8,GameHub,Milwaukee,WI,2025-10-09,Electronics
+10041,20041,Levi Hernandez,90.46,75,OfficeSupply,Charlotte,NC,2025-10-07,Entertainment
+10042,20042,Olivia Clark,124.77,24,Quick Gas,Las Vegas,NV,2025-08-09,Home
+10043,20043,Ella Lee,1412.69,73,HomeStyle,Philadelphia,PA,2025-08-06,Gas
+10044,20044,Grace King,877.59,67,BookBarn,Nashville,TN,2025-09-03,Sports
+10045,20045,William Scott,474.7,34,VendStation,San Francisco,CA,2025-09-08,Auto
+10046,20046,Lucas Nelson,1129.04,10,Corner Cafe,New York,NY,2025-08-13,Gas
+10047,20047,Harper Davis,761.3,17,ShoeStop,Tampa,FL,2025-08-09,Home
+10048,20048,Aiden Garcia,240.83,107,GreenGrocer,Indianapolis,IN,2025-09-08,Other
+10049,20049,Ava King,1226.57,39,FurnishCo,Boston,MA,2025-08-18,Health
+10050,20050,Noah Adams,165.02,71,AirFly,Denver,CO,2025-09-06,Sports
+10051,20051,Benjamin Hernandez,309.38,82,Cup & Go,Charlotte,NC,2025-10-02,Health
+10052,20052,Elijah Nelson,1269.93,12,DriveThru,San Diego,CA,2025-09-05,Electronics
+10053,20053,Ava Hernandez,1157.82,82,Cup & Go,Seattle,WA,2025-09-26,PersonalCare
+10054,20054,Harper Johnson,172.25,114,NewsStand,Tampa,FL,2025-08-20,Electronics
+10055,20055,Mason Gonzalez,875.85,19,TechWave,San Francisco,CA,2025-08-06,Books
+10056,20056,Aiden Adams,1399.97,111,ElectroMart,Tampa,FL,2025-09-15,Sports
+10057,20057,William Lopez,1002.07,46,AppStore,Orlando,FL,2025-09-22,Travel
+10058,20058,Scarlett Nelson,358.92,21,Clothier,San Jose,CA,2025-08-23,PersonalCare
+10059,20059,Ava Brown,1106.16,43,Clothier,Nashville,TN,2025-09-22,Home
+10060,20060,Mia Brown,1182.12,14,VendStation,Richmond,VA,2025-08-05,Digital
+10061,20061,Ethan Davis,1225.8,59,ShoeStop,Atlanta,GA,2025-08-30,Home
+10062,20062,Ava King,293.73,43,Cup & Go,Richmond,VA,2025-08-09,Health
+10063,20063,Aiden Allen,766.56,87,Bakery,Orlando,FL,2025-09-12,Food
+10064,20064,Noah Adams,1455.75,23,GameHub,Denver,CO,2025-08-05,Grocery
+10065,20065,Logan Anderson,521.8,101,BookBarn,San Diego,CA,2025-10-05,Grocery
+10066,20066,Ella Adams,867.0,33,ElectroMart,Indianapolis,IN,2025-09-25,Food
+10067,20067,Henry Nelson,1210.73,88,AutoService,Milwaukee,WI,2025-08-26,Pet
+10068,20068,Grace Smith,1423.57,118,BookBarn,Las Vegas,NV,2025-09-10,Grocery
+10069,20069,Levi Adams,453.98,40,FurnishCo,San Diego,CA,2025-09-11,Office
+10070,20070,Benjamin Garcia,833.85,25,TechWave,Jacksonville,FL,2025-09-18,Entertainment
+10071,20071,Logan Walker,454.92,71,Bakery,Austin,TX,2025-09-08,Books
+10072,20072,Jackson Anderson,1179.71,78,DriveThru,Miami,FL,2025-09-29,Auto
+10073,20073,James King,324.48,61,Clothier,Tampa,FL,2025-08-22,Gas
+10074,20074,Isabella Clark,997.46,80,BookBarn,Houston,TX,2025-08-31,Books
+10075,20075,Ethan Rivera,302.7,4,ElectroMart,Phoenix,AZ,2025-09-30,Gas
+10076,20076,James Anderson,1329.77,74,FitGear,Indianapolis,IN,2025-09-19,Digital
+10077,20077,Ella Lopez,225.62,89,Corner Cafe,Tampa,FL,2025-08-14,PersonalCare
+10078,20078,Ethan Brown,1207.14,90,Subwich,New York,NY,2025-08-07,Home
+10079,20079,Scarlett Green,186.43,18,Clothier,New York,NY,2025-10-07,Apparel
+10080,20080,Zoe Adams,666.65,105,AutoService,Tampa,FL,2025-10-04,PersonalCare
+10081,20081,Mason Nelson,824.07,115,StreamingCo,Milwaukee,WI,2025-09-30,Auto
+10082,20082,Mia Wright,374.62,82,Cup & Go,Baltimore,MD,2025-10-06,Digital
+10083,20083,Chloe Lopez,415.52,10,NewsStand,Atlanta,GA,2025-08-31,Health
+10084,20084,Lucas Hernandez,1340.08,11,AirFly,San Francisco,CA,2025-08-30,Office
+10085,20085,Benjamin Patel,1061.1,9,TechWave,San Diego,CA,2025-09-12,Auto
+10086,20086,Grace Nguyen,314.22,54,VendStation,Tampa,FL,2025-08-03,Office
+10087,20087,Charlotte Johnson,1414.4,39,AppStore,Minneapolis,MN,2025-09-23,Home
+10088,20088,Charlotte Lopez,413.04,63,Corner Cafe,Minneapolis,MN,2025-09-13,Office
+10089,20089,Levi Brown,1261.56,118,AirFly,Las Vegas,NV,2025-10-08,Food
+10090,20090,Scarlett Wilson,889.88,85,Corner Cafe,Houston,TX,2025-09-24,Travel
+10091,20091,Sebastian Thomas,276.68,34,VendStation,Miami,FL,2025-08-28,Auto
+10092,20092,Lucas Hernandez,1143.04,49,Cup & Go,Baltimore,MD,2025-09-23,Health
+10093,20093,Mason Smith,708.11,96,GreenGrocer,Dallas,TX,2025-09-14,Home
+10094,20094,Chloe Smith,1172.94,84,ElectroMart,Baltimore,MD,2025-08-04,Home
+10095,20095,Jackson Hill,35.47,20,HomeStyle,San Francisco,CA,2025-09-30,Grocery
+10096,20096,Amelia Davis,700.23,33,AppStore,Portland,OR,2025-08-22,Grocery
+10097,20097,Zoe Hill,249.83,40,WholeBuy,Philadelphia,PA,2025-08-04,Books
+10098,20098,Amelia King,1362.5,49,VendStation,Indianapolis,IN,2025-08-26,Gas
+10099,20099,Amelia Scott,1246.7,32,WholeBuy,Indianapolis,IN,2025-09-08,Grocery
+10100,20100,Jack Walker,1175.04,45,GreenGrocer,San Diego,CA,2025-09-17,Gas
+10101,20101,Henry Allen,515.14,109,TechWave,Raleigh,NC,2025-10-02,Grocery
+10102,20102,Grace Gonzalez,955.2,107,PetCare,Indianapolis,IN,2025-08-20,PersonalCare
+10103,20103,Sophia Baker,785.01,84,Cup & Go,Las Vegas,NV,2025-10-08,Digital
+10104,20104,James Anderson,1239.47,76,Cup & Go,Miami,FL,2025-09-01,Gas
+10105,20105,Mia Adams,678.95,97,PetCare,Philadelphia,PA,2025-09-18,Apparel
+10106,20106,Ava Taylor,1277.17,24,OfficeSupply,Chicago,IL,2025-09-15,Health
+10107,20107,Lucas Martinez,1321.08,90,Cup & Go,Orlando,FL,2025-08-02,Other
+10108,20108,Jackson Smith,365.83,53,OfficeSupply,Orlando,FL,2025-08-31,Digital
+10109,20109,Chloe Scott,738.78,102,Corner Cafe,Houston,TX,2025-09-07,Home
+10110,20110,Ella Scott,368.74,85,GameHub,Portland,OR,2025-09-30,Other
+10111,20111,Aiden Anderson,1494.96,71,BookBarn,Portland,OR,2025-09-28,Health
+10112,20112,Isabella Martinez,349.65,93,FitGear,Miami,FL,2025-08-16,Entertainment
+10113,20113,Jackson Davis,1109.21,36,AutoService,Philadelphia,PA,2025-10-07,Books
+10114,20114,Noah Hill,295.21,30,ShoeStop,Seattle,WA,2025-09-08,Food
+10115,20115,Benjamin Lewis,194.24,6,ElectroMart,Orlando,FL,2025-09-07,Travel
+10116,20116,Chloe Green,1130.42,14,Corner Cafe,Philadelphia,PA,2025-09-06,Digital
+10117,20117,Charlotte Thomas,514.36,7,Cup & Go,Richmond,VA,2025-10-01,Grocery
+10118,20118,Mason Smith,604.06,10,GameHub,San Antonio,TX,2025-08-07,Travel
+10119,20119,Emma Rivera,846.45,39,Quick Gas,Phoenix,AZ,2025-08-16,PersonalCare
+10120,20120,Logan Young,1187.16,29,AppStore,Charlotte,NC,2025-09-18,Auto
+10121,20121,Scarlett Thomas,449.54,76,TechWave,Atlanta,GA,2025-08-08,Grocery
+10122,20122,Zoe Davis,940.14,34,FurnishCo,Houston,TX,2025-08-21,Home
+10123,20123,Sophia Lewis,117.22,1,TechWave,New York,NY,2025-09-30,Books
+10124,20124,Olivia Lopez,435.72,37,NewsStand,Richmond,VA,2025-09-28,Gas
+10125,20125,William Lopez,1386.25,101,Clothier,San Antonio,TX,2025-08-26,PersonalCare
+10126,20126,Noah Lewis,341.09,20,Cup & Go,Raleigh,NC,2025-08-19,Gas
+10127,20127,Olivia Brown,1189.98,77,AutoService,Raleigh,NC,2025-09-06,Auto
+10128,20128,Noah Thomas,1034.57,90,VendStation,Denver,CO,2025-10-04,Digital
+10129,20129,James Smith,899.06,114,TechWave,Milwaukee,WI,2025-09-11,Health
+10130,20130,Ava Smith,347.24,87,Bakery,Richmond,VA,2025-08-03,Health
+10131,20131,Amelia Nguyen,1145.85,23,OfficeSupply,Charlotte,NC,2025-09-26,Health
+10132,20132,Sophia Walker,656.65,105,OfficeSupply,Houston,TX,2025-09-30,Pet
+10133,20133,Grace Hernandez,484.98,14,StreamingCo,Miami,FL,2025-09-22,Digital
+10134,20134,Isabella King,1418.06,105,AppStore,Orlando,FL,2025-08-05,Auto
+10135,20135,Liam Hernandez,382.34,15,AppStore,Minneapolis,MN,2025-10-05,Food
+10136,20136,William Green,816.18,53,ElectroMart,Chicago,IL,2025-10-06,Pet
+10137,20137,Logan Wright,750.25,57,AppStore,Dallas,TX,2025-08-27,Health
+10138,20138,Harper Patel,1391.87,57,NewsStand,Columbus,OH,2025-08-16,Food
+10139,20139,Chloe Young,1199.97,91,StreamingCo,Atlanta,GA,2025-10-10,Food
+10140,20140,Harper Anderson,144.35,108,WholeBuy,New York,NY,2025-08-16,Travel
+10141,20141,Charlotte Nelson,1076.32,66,NewsStand,Denver,CO,2025-09-23,Digital
+10142,20142,Charlotte Lopez,687.9,19,VendStation,Chicago,IL,2025-10-05,Travel
+10143,20143,Sebastian Smith,417.99,102,TechWave,Miami,FL,2025-10-04,Health
+10144,20144,Mason Johnson,427.84,39,Bakery,Philadelphia,PA,2025-10-02,Travel
+10145,20145,James Lewis,729.09,43,GreenGrocer,Baltimore,MD,2025-10-09,Office
+10146,20146,James Nelson,486.06,25,NewsStand,Phoenix,AZ,2025-09-19,Home
+10147,20147,Sebastian Wright,619.11,41,AutoService,Columbus,OH,2025-09-18,Office
+10148,20148,William Rivera,1232.02,20,OfficeSupply,Dallas,TX,2025-08-17,Other
+10149,20149,Amelia Hernandez,1305.2,112,PetCare,Boston,MA,2025-10-07,Auto
+10150,20150,Ava Baker,220.51,112,DriveThru,San Francisco,CA,2025-08-10,Digital
+10151,20151,Jack Martinez,511.15,89,VendStation,San Antonio,TX,2025-08-11,Apparel
+10152,20152,Sebastian King,1289.72,49,BookBarn,San Antonio,TX,2025-10-02,Electronics
+10153,20153,Logan Smith,355.98,88,PharmaPlus,Phoenix,AZ,2025-08-12,PersonalCare
+10154,20154,Noah Wright,952.45,112,WholeBuy,New York,NY,2025-08-22,Books
+10155,20155,Elijah Johnson,73.76,102,ElectroMart,Atlanta,GA,2025-09-15,Pet
+10156,20156,Grace Patel,370.08,53,GameHub,Jacksonville,FL,2025-08-24,Entertainment
+10157,20157,Sophia Smith,916.19,49,SalonPro,Jacksonville,FL,2025-08-31,Digital
+10158,20158,Scarlett Walker,218.96,60,DriveThru,Denver,CO,2025-09-28,Health
+10159,20159,William Johnson,1348.87,60,PharmaPlus,Jacksonville,FL,2025-10-09,Entertainment
+10160,20160,Liam Thomas,1418.13,76,PharmaPlus,San Antonio,TX,2025-09-24,Health
+10161,20161,James Green,456.67,50,OfficeSupply,Boston,MA,2025-08-31,Office
+10162,20162,Amelia Gonzalez,864.34,90,PharmaPlus,Austin,TX,2025-09-20,Health
+10163,20163,Ava Walker,1298.28,100,AutoService,Dallas,TX,2025-10-03,Books
+10164,20164,Zoe Rivera,349.03,103,ShoeStop,Phoenix,AZ,2025-08-25,Health
+10165,20165,William Wright,1082.79,85,FurnishCo,Raleigh,NC,2025-08-18,Grocery
+10166,20166,Elijah Allen,971.28,40,Clothier,New York,NY,2025-08-05,Pet
+10167,20167,Levi Patel,139.75,38,BookBarn,Milwaukee,WI,2025-09-23,Entertainment
+10168,20168,Jackson Patel,1180.84,113,ShoeStop,Charlotte,NC,2025-10-04,Health
+10169,20169,Mason Brown,389.17,106,OfficeSupply,San Jose,CA,2025-09-07,Apparel
+10170,20170,Jack Lee,705.16,10,AirFly,Baltimore,MD,2025-08-29,Office
+10171,20171,Sebastian Rivera,838.18,12,Clothier,Minneapolis,MN,2025-08-02,Health
+10172,20172,Harper Lee,684.91,87,AutoService,Jacksonville,FL,2025-09-03,Office
+10173,20173,Mason Allen,1410.74,14,FurnishCo,Phoenix,AZ,2025-09-30,Food
+10174,20174,Logan Adams,1415.04,42,SalonPro,Phoenix,AZ,2025-08-09,Auto
+10175,20175,Scarlett Scott,456.77,53,WholeBuy,San Francisco,CA,2025-08-06,Electronics
+10176,20176,Isabella Taylor,178.6,31,GreenGrocer,San Francisco,CA,2025-09-19,Auto
+10177,20177,Aiden King,1424.32,90,GreenGrocer,San Diego,CA,2025-08-20,PersonalCare
+10178,20178,Chloe Lee,1251.37,79,TechWave,Denver,CO,2025-08-05,Pet
+10179,20179,Jackson Thomas,669.82,31,ShoeStop,Boston,MA,2025-09-17,Pet
+10180,20180,Olivia Wilson,417.44,16,Bakery,New York,NY,2025-08-12,Sports
+10181,20181,Chloe Allen,897.73,3,ElectroMart,San Jose,CA,2025-09-12,Home
+10182,20182,Emma Rivera,849.04,9,Bakery,Baltimore,MD,2025-10-10,Sports
+10183,20183,Amelia Davis,1220.51,30,BookBarn,Baltimore,MD,2025-08-19,Food
+10184,20184,Mia Green,1476.12,17,GreenGrocer,Denver,CO,2025-08-23,Grocery
+10185,20185,William Green,43.54,2,ShoeStop,San Jose,CA,2025-08-31,Apparel
+10186,20186,Ava Brown,401.72,17,AutoService,San Diego,CA,2025-10-07,Grocery
+10187,20187,Levi Smith,716.99,100,ShoeStop,Charlotte,NC,2025-08-14,Auto
+10188,20188,Henry Lopez,1418.4,6,AutoService,San Jose,CA,2025-10-06,Books
+10189,20189,James Allen,1446.22,8,OfficeSupply,Richmond,VA,2025-09-21,PersonalCare
+10190,20190,William Lee,737.95,117,PetCare,Houston,TX,2025-08-11,Apparel
+10191,20191,Logan Patel,103.19,36,SalonPro,San Antonio,TX,2025-10-10,Apparel
+10192,20192,Ella Young,798.18,59,Subwich,Las Vegas,NV,2025-09-25,Grocery
+10193,20193,Jack Scott,176.05,84,DriveThru,Tampa,FL,2025-10-10,Sports
+10194,20194,Grace Thomas,1332.7,53,BookBarn,Raleigh,NC,2025-09-28,Office
+10195,20195,Grace Baker,147.15,55,BookBarn,Jacksonville,FL,2025-09-02,Pet
+10196,20196,Emma King,1384.86,9,Quick Gas,Raleigh,NC,2025-08-11,Gas
+10197,20197,Grace Lee,1118.16,48,Clothier,San Francisco,CA,2025-08-08,Apparel
+10198,20198,William Lee,619.16,112,FurnishCo,Baltimore,MD,2025-09-24,Electronics
+10199,20199,Isabella Young,472.11,14,GameHub,Charlotte,NC,2025-08-28,Travel
+10200,20200,William Taylor,340.25,14,ShoeStop,Richmond,VA,2025-09-17,Grocery
+10201,20201,Zoe Martinez,863.28,104,TechWave,Richmond,VA,2025-08-04,Health
+10202,20202,Ava Brown,413.54,98,PharmaPlus,Nashville,TN,2025-09-13,Pet
+10203,20203,Ava Brown,1305.44,73,FurnishCo,Minneapolis,MN,2025-08-09,Travel
+10204,20204,Levi Allen,1457.86,12,AutoService,Charlotte,NC,2025-08-28,Office
+10205,20205,Grace Thomas,514.64,48,PharmaPlus,Milwaukee,WI,2025-09-11,Gas
+10206,20206,Elijah Nguyen,237.59,97,SalonPro,Dallas,TX,2025-08-11,Health
+10207,20207,James King,638.9,78,PetCare,San Diego,CA,2025-09-04,Sports
+10208,20208,Zoe Clark,175.16,56,WholeBuy,Atlanta,GA,2025-10-02,Other
+10209,20209,William Garcia,72.9,51,SalonPro,Dallas,TX,2025-08-01,Sports
+10210,20210,Isabella Davis,1152.19,98,Cup & Go,Atlanta,GA,2025-09-11,Grocery
+10211,20211,Ava Taylor,1121.79,23,AirFly,Minneapolis,MN,2025-10-08,Home
+10212,20212,Henry Lewis,1250.86,104,ShoeStop,Houston,TX,2025-09-20,Electronics
+10213,20213,Grace Johnson,692.33,10,BookBarn,Philadelphia,PA,2025-09-24,Office
+10214,20214,Benjamin Allen,629.45,15,VendStation,Austin,TX,2025-09-11,Entertainment
+10215,20215,Jack Young,692.84,89,ShoeStop,Houston,TX,2025-09-25,Grocery
+10216,20216,Ethan Anderson,885.36,68,Quick Gas,Minneapolis,MN,2025-09-09,Apparel
+10217,20217,Ethan Hernandez,1169.78,10,Subwich,San Antonio,TX,2025-08-15,Other
+10218,20218,Henry Davis,1359.35,45,ShoeStop,Milwaukee,WI,2025-08-19,Home
+10219,20219,Noah Patel,387.67,23,SalonPro,San Francisco,CA,2025-08-10,Entertainment
+10220,20220,Zoe Allen,743.7,97,GameHub,Baltimore,MD,2025-09-27,Apparel
+10221,20221,Sebastian Allen,477.63,57,Quick Gas,Columbus,OH,2025-09-26,Books
+10222,20222,Jack Martinez,889.17,46,Subwich,Houston,TX,2025-09-09,Auto
+10223,20223,James Nguyen,90.05,107,PharmaPlus,Houston,TX,2025-08-12,Other
+10224,20224,Ella Thomas,872.59,102,AutoService,Tampa,FL,2025-08-06,Auto
+10225,20225,Scarlett Rivera,859.63,25,BookBarn,Las Vegas,NV,2025-09-30,Other
+10226,20226,Emma Nguyen,678.53,104,Bakery,Miami,FL,2025-08-11,Other
+10227,20227,Chloe Brown,63.52,91,PetCare,New York,NY,2025-10-07,Other
+10228,20228,Logan Brown,549.03,118,PharmaPlus,Minneapolis,MN,2025-09-22,Apparel
+10229,20229,William Young,83.29,81,DriveThru,Miami,FL,2025-08-09,Apparel
+10230,20230,Noah Lewis,1019.18,37,Cup & Go,Milwaukee,WI,2025-08-20,Apparel
+10231,20231,Liam Walker,997.1,118,ShoeStop,Atlanta,GA,2025-09-20,Travel
+10232,20232,Logan Scott,1407.31,40,GreenGrocer,Minneapolis,MN,2025-09-12,Travel
+10233,20233,William Scott,1244.29,95,FurnishCo,Nashville,TN,2025-10-07,Gas
+10234,20234,Chloe King,637.99,47,Corner Cafe,Portland,OR,2025-09-09,Entertainment
+10235,20235,Jackson Hernandez,1421.76,63,FitGear,Phoenix,AZ,2025-08-18,Travel
+10236,20236,Liam Garcia,1267.42,13,Subwich,Baltimore,MD,2025-10-09,Other
+10237,20237,Olivia King,508.46,99,SalonPro,San Francisco,CA,2025-09-18,Travel
+10238,20238,Sophia Brown,1247.86,99,SalonPro,San Jose,CA,2025-08-22,Auto
+10239,20239,Olivia Anderson,549.63,93,HomeStyle,New York,NY,2025-09-06,Auto
+10240,20240,Ethan Lewis,362.56,104,Clothier,Columbus,OH,2025-08-25,Pet
+10241,20241,William Walker,1476.74,60,AppStore,Atlanta,GA,2025-09-18,Other
+10242,20242,Henry Anderson,1449.57,105,FitGear,San Jose,CA,2025-08-18,Health
+10243,20243,Olivia Allen,723.48,48,GreenGrocer,Nashville,TN,2025-08-14,Other
+10244,20244,Sebastian Lee,431.17,98,StreamingCo,Denver,CO,2025-09-27,Other
+10245,20245,Emma Hill,659.02,117,HomeStyle,Raleigh,NC,2025-09-27,Pet
+10246,20246,Scarlett Johnson,625.27,51,Subwich,Portland,OR,2025-08-31,Office
+10247,20247,Liam Gonzalez,340.69,41,WholeBuy,Raleigh,NC,2025-09-12,Travel
+10248,20248,Emma Nguyen,433.88,107,OfficeSupply,Indianapolis,IN,2025-08-18,Digital
+10249,20249,James Young,12.85,11,Corner Cafe,Denver,CO,2025-08-28,Travel
+10250,20250,Harper Baker,915.28,55,WholeBuy,Baltimore,MD,2025-09-06,Home
+10251,20251,Isabella Lee,76.39,54,DriveThru,San Jose,CA,2025-09-28,Gas
+10252,20252,Noah Hill,1358.19,77,GreenGrocer,Austin,TX,2025-10-05,Home
+10253,20253,Benjamin Patel,440.45,1,SalonPro,Portland,OR,2025-08-31,PersonalCare
+10254,20254,Sophia King,1003.98,68,ShoeStop,Houston,TX,2025-10-07,Other
+10255,20255,Jack Clark,833.46,50,OfficeSupply,Dallas,TX,2025-09-19,Pet
+10256,20256,Mia Baker,29.28,101,Quick Gas,Portland,OR,2025-08-31,Grocery
+10257,20257,Zoe Walker,1104.1,43,AirFly,Dallas,TX,2025-09-15,Apparel
+10258,20258,Mason Allen,266.76,100,FurnishCo,New York,NY,2025-10-01,Entertainment
+10259,20259,Jack Patel,99.34,100,PetCare,Dallas,TX,2025-09-07,Sports
+10260,20260,Olivia Rivera,303.21,6,BookBarn,Nashville,TN,2025-09-09,Other
+10261,20261,Ella Hill,816.83,33,ElectroMart,Baltimore,MD,2025-08-25,Books
+10262,20262,Aiden Green,1172.36,111,DriveThru,Miami,FL,2025-09-04,Grocery
+10263,20263,Jack Gonzalez,658.24,52,AutoService,New York,NY,2025-09-19,Apparel
+10264,20264,Sophia Taylor,1039.64,48,Clothier,Charlotte,NC,2025-09-04,Gas
+10265,20265,Levi Anderson,123.0,78,Bakery,Seattle,WA,2025-10-09,Books
+10266,20266,Lucas Lee,124.7,85,PharmaPlus,Atlanta,GA,2025-09-27,PersonalCare
+10267,20267,Sophia Scott,668.64,58,ElectroMart,Milwaukee,WI,2025-09-15,PersonalCare
+10268,20268,Mia Allen,1470.14,8,Quick Gas,Jacksonville,FL,2025-09-21,Pet
+10269,20269,Henry Rivera,1126.1,21,Corner Cafe,San Francisco,CA,2025-09-26,Electronics
+10270,20270,Emma Smith,357.81,83,ShoeStop,Portland,OR,2025-09-19,Electronics
+10271,20271,Logan Patel,1020.2,48,ShoeStop,New York,NY,2025-08-10,Travel
+10272,20272,Henry Gonzalez,600.06,84,Cup & Go,Phoenix,AZ,2025-08-15,Food
+10273,20273,Levi Brown,751.07,50,GreenGrocer,Boston,MA,2025-09-03,Health
+10274,20274,Benjamin Thomas,325.78,79,PharmaPlus,Indianapolis,IN,2025-10-02,Sports
+10275,20275,Noah Patel,1279.98,58,StreamingCo,Tampa,FL,2025-09-26,Gas
+10276,20276,Jack King,1451.5,41,FurnishCo,Portland,OR,2025-08-09,Books
+10277,20277,Elijah Garcia,1277.79,92,NewsStand,Nashville,TN,2025-08-23,Pet
+10278,20278,Henry Lopez,186.44,26,Clothier,San Francisco,CA,2025-08-31,Digital
+10279,20279,Ava Gonzalez,833.26,48,PetCare,San Jose,CA,2025-10-10,Travel
+10280,20280,Logan Adams,133.89,40,VendStation,Indianapolis,IN,2025-10-01,Other
+10281,20281,Grace Wright,617.1,74,Quick Gas,San Francisco,CA,2025-09-10,Gas
+10282,20282,James Thomas,1021.76,45,AirFly,Tampa,FL,2025-10-10,Entertainment
+10283,20283,Zoe Patel,651.76,117,ElectroMart,Raleigh,NC,2025-08-16,Other
+10284,20284,Emma Garcia,251.16,42,NewsStand,Phoenix,AZ,2025-09-14,Other
+10285,20285,Elijah Garcia,1269.67,33,FitGear,San Antonio,TX,2025-10-10,Health
+10286,20286,Emma Allen,457.72,69,Quick Gas,Charlotte,NC,2025-08-22,Travel
+10287,20287,Sophia King,938.6,116,SalonPro,Miami,FL,2025-08-06,Food
+10288,20288,Liam Nguyen,1423.08,99,GameHub,Denver,CO,2025-08-27,PersonalCare
+10289,20289,Logan Allen,50.28,114,DriveThru,Orlando,FL,2025-09-07,Books
+10290,20290,Charlotte Lopez,1208.01,88,VendStation,Atlanta,GA,2025-09-28,Gas
+10291,20291,Benjamin Nguyen,241.33,54,OfficeSupply,New York,NY,2025-08-27,Apparel
+10292,20292,Logan Patel,472.31,92,BookBarn,Milwaukee,WI,2025-09-14,Office
+10293,20293,Emma Wright,558.96,72,WholeBuy,Miami,FL,2025-08-31,Auto
+10294,20294,Noah Martinez,677.15,19,WholeBuy,Dallas,TX,2025-09-07,Office
+10295,20295,Sebastian Young,630.11,111,StreamingCo,Raleigh,NC,2025-09-11,Apparel
+10296,20296,Jackson Wright,243.22,66,PetCare,Columbus,OH,2025-09-09,Digital
+10297,20297,Ava Smith,1418.12,65,PetCare,Phoenix,AZ,2025-08-28,Pet
+10298,20298,Olivia Nguyen,425.63,77,Bakery,San Antonio,TX,2025-09-30,Books
+10299,20299,Harper Johnson,1271.52,56,AirFly,Tampa,FL,2025-09-03,Pet
+10300,20300,Zoe Wilson,552.08,52,ElectroMart,Philadelphia,PA,2025-08-25,Pet
+10301,20301,Harper Garcia,114.93,65,PetCare,Baltimore,MD,2025-10-10,Health
+10302,20302,Mason Young,1022.2,16,AirFly,Boston,MA,2025-09-20,Pet
+10303,20303,Jack Hernandez,838.96,47,AppStore,San Francisco,CA,2025-08-26,Other
+10304,20304,Ella Clark,65.18,5,AirFly,Indianapolis,IN,2025-09-12,Digital
+10305,20305,Henry Thomas,227.67,115,Subwich,San Francisco,CA,2025-09-11,Apparel
+10306,20306,Sophia Wilson,1485.97,95,Bakery,Atlanta,GA,2025-09-13,Other
+10307,20307,Mason Clark,800.85,91,GameHub,Atlanta,GA,2025-09-30,Food
+10308,20308,Aiden Hernandez,1012.34,54,GameHub,Atlanta,GA,2025-08-04,Digital
+10309,20309,Mia Allen,1175.44,100,GameHub,Philadelphia,PA,2025-08-30,Electronics
+10310,20310,Amelia Taylor,259.92,81,AutoService,Las Vegas,NV,2025-09-18,Travel
+10311,20311,Mason King,367.08,74,NewsStand,Boston,MA,2025-08-25,Food
+10312,20312,James Hernandez,631.08,53,NewsStand,Chicago,IL,2025-09-22,Other
+10313,20313,Zoe Young,1381.18,112,AutoService,Milwaukee,WI,2025-08-08,Travel
+10314,20314,Henry Davis,843.53,85,OfficeSupply,Charlotte,NC,2025-09-18,Apparel
+10315,20315,Sophia Thomas,1368.63,44,GreenGrocer,Portland,OR,2025-09-03,Digital
+10316,20316,Jackson Lopez,422.11,39,HomeStyle,Atlanta,GA,2025-09-06,Sports
+10317,20317,Benjamin Scott,736.06,62,ShoeStop,Orlando,FL,2025-09-05,Books
+10318,20318,Noah Walker,1016.55,49,VendStation,Raleigh,NC,2025-09-14,Travel
+10319,20319,Isabella Nguyen,435.01,92,Quick Gas,Portland,OR,2025-09-26,Health
+10320,20320,Levi Taylor,324.91,106,GreenGrocer,Denver,CO,2025-09-04,Travel
+10321,20321,Noah Young,1112.63,31,HomeStyle,Dallas,TX,2025-10-07,Home
+10322,20322,Chloe Lopez,83.47,53,BookBarn,Indianapolis,IN,2025-09-30,Grocery
+10323,20323,William Wright,210.51,71,StreamingCo,San Diego,CA,2025-09-30,Digital
+10324,20324,Chloe Davis,1135.09,37,BookBarn,Atlanta,GA,2025-08-08,Gas
+10325,20325,Chloe Walker,352.17,95,AutoService,Richmond,VA,2025-08-05,Entertainment
+10326,20326,Grace Adams,1257.22,120,ElectroMart,Raleigh,NC,2025-09-20,Digital
+10327,20327,Sophia Nelson,1124.76,112,PharmaPlus,Tampa,FL,2025-08-05,Food
+10328,20328,Isabella Walker,906.16,119,BookBarn,Atlanta,GA,2025-09-28,Other
+10329,20329,Charlotte Adams,1408.15,109,Subwich,New York,NY,2025-09-04,Sports
+10330,20330,Jack Lee,499.37,94,PetCare,San Antonio,TX,2025-09-02,Entertainment
+10331,20331,Ava Baker,508.98,38,GameHub,Jacksonville,FL,2025-08-25,Entertainment
+10332,20332,Logan Green,959.9,52,Bakery,San Diego,CA,2025-10-05,Apparel
+10333,20333,Liam Wilson,1005.54,24,AirFly,Columbus,OH,2025-09-11,Home
+10334,20334,Ava Martinez,578.44,58,AppStore,Denver,CO,2025-09-12,Books
+10335,20335,Amelia Baker,861.45,34,DriveThru,Portland,OR,2025-08-31,Electronics
+10336,20336,William Lee,700.77,21,VendStation,Jacksonville,FL,2025-10-04,Books
+10337,20337,Benjamin Lee,959.87,38,ShoeStop,Las Vegas,NV,2025-08-29,Home
+10338,20338,Emma Taylor,234.01,96,SalonPro,Portland,OR,2025-09-23,Digital
+10339,20339,Zoe Lewis,1203.98,106,FitGear,Baltimore,MD,2025-09-01,Gas
+10340,20340,Henry Thomas,794.62,47,Quick Gas,Nashville,TN,2025-08-15,Electronics
+10341,20341,Mason Lewis,1354.82,26,GameHub,Orlando,FL,2025-08-20,Entertainment
+10342,20342,Lucas Green,782.91,15,FurnishCo,Chicago,IL,2025-10-02,Gas
+10343,20343,Elijah Clark,671.0,8,PetCare,San Francisco,CA,2025-10-05,PersonalCare
+10344,20344,James Walker,91.32,60,FurnishCo,San Jose,CA,2025-09-09,Food
+10345,20345,Ella Martinez,1225.6,96,FitGear,Philadelphia,PA,2025-08-10,Electronics
+10346,20346,Grace Gonzalez,1052.08,70,ElectroMart,Nashville,TN,2025-08-09,Digital
+10347,20347,Olivia Garcia,616.26,99,AirFly,Baltimore,MD,2025-09-23,Pet
+10348,20348,Elijah Wilson,675.56,118,VendStation,Minneapolis,MN,2025-08-11,Travel
+10349,20349,Chloe Green,524.92,23,GreenGrocer,Minneapolis,MN,2025-10-07,Travel
+10350,20350,Levi Lopez,1253.06,97,Corner Cafe,Atlanta,GA,2025-09-29,PersonalCare
+10351,20351,Harper Wilson,1235.92,32,PetCare,Portland,OR,2025-08-20,Health
+10352,20352,Jackson Nelson,1313.44,98,WholeBuy,Dallas,TX,2025-09-23,Food
+10353,20353,Ethan Davis,105.6,77,ElectroMart,New York,NY,2025-08-07,Home
+10354,20354,Levi Nguyen,606.39,30,GreenGrocer,Chicago,IL,2025-08-08,Travel
+10355,20355,Henry Garcia,355.07,118,AutoService,Philadelphia,PA,2025-09-10,Apparel
+10356,20356,Ethan Garcia,1315.01,85,Subwich,Phoenix,AZ,2025-09-22,Books
+10357,20357,Mia Nguyen,837.29,76,AutoService,Nashville,TN,2025-08-23,PersonalCare
+10358,20358,Harper Taylor,75.09,45,DriveThru,Jacksonville,FL,2025-09-18,Other
+10359,20359,Lucas Scott,627.41,20,PharmaPlus,Minneapolis,MN,2025-08-24,Digital
+10360,20360,Ethan Green,341.89,110,NewsStand,San Francisco,CA,2025-09-29,Electronics
+10361,20361,Harper Anderson,1451.84,72,Subwich,San Francisco,CA,2025-09-19,Home
+10362,20362,Mia Davis,498.74,11,PetCare,Richmond,VA,2025-09-17,Gas
+10363,20363,Harper Baker,1244.96,7,Cup & Go,Minneapolis,MN,2025-08-06,Gas
+10364,20364,Jackson Rivera,1143.74,93,FurnishCo,Orlando,FL,2025-08-28,Digital
+10365,20365,Jackson Green,1361.01,39,Corner Cafe,Chicago,IL,2025-08-25,Grocery
+10366,20366,Levi Wright,720.99,32,NewsStand,Las Vegas,NV,2025-08-27,Office
+10367,20367,Scarlett Lopez,830.36,100,PharmaPlus,Minneapolis,MN,2025-09-29,Pet
+10368,20368,Isabella Martinez,542.67,113,OfficeSupply,New York,NY,2025-08-13,Digital
+10369,20369,Zoe Hill,483.75,27,ShoeStop,Miami,FL,2025-09-22,Electronics
+10370,20370,Amelia Green,335.8,19,Corner Cafe,Denver,CO,2025-10-10,PersonalCare
+10371,20371,Isabella Patel,298.31,30,VendStation,Philadelphia,PA,2025-09-01,Digital
+10372,20372,Harper Allen,1415.48,44,Cup & Go,Baltimore,MD,2025-10-02,Digital
+10373,20373,James Brown,1100.49,46,StreamingCo,San Francisco,CA,2025-10-09,Digital
+10374,20374,Sophia Nelson,1334.6,83,ElectroMart,Charlotte,NC,2025-08-05,Gas
+10375,20375,Mason King,77.53,1,TechWave,San Francisco,CA,2025-08-30,Gas
+10376,20376,Benjamin Patel,18.67,65,PetCare,Portland,OR,2025-08-08,Digital
+10377,20377,William Taylor,28.52,69,GreenGrocer,San Diego,CA,2025-08-02,Food
+10378,20378,Henry Baker,415.74,37,Corner Cafe,Charlotte,NC,2025-09-25,Entertainment
+10379,20379,Noah Nelson,148.99,20,HomeStyle,Chicago,IL,2025-10-07,Health
+10380,20380,Mason Gonzalez,404.65,51,Quick Gas,Portland,OR,2025-09-21,Auto
+10381,20381,Amelia Lopez,1485.4,29,PharmaPlus,Jacksonville,FL,2025-08-11,Electronics
+10382,20382,Liam Wilson,572.0,71,OfficeSupply,Dallas,TX,2025-08-02,Entertainment
+10383,20383,Liam Taylor,1268.77,83,Clothier,Miami,FL,2025-08-13,Other
+10384,20384,Scarlett Nguyen,348.5,116,NewsStand,Tampa,FL,2025-09-30,Health
+10385,20385,Olivia Nelson,116.15,119,Cup & Go,Tampa,FL,2025-10-09,Electronics
+10386,20386,Sophia Nelson,1276.39,3,FitGear,Philadelphia,PA,2025-08-19,Office
+10387,20387,Scarlett Smith,452.42,73,HomeStyle,Philadelphia,PA,2025-09-19,Apparel
+10388,20388,Ella Wright,1110.92,102,NewsStand,Milwaukee,WI,2025-08-11,Other
+10389,20389,Levi Gonzalez,85.28,56,HomeStyle,Raleigh,NC,2025-08-10,Apparel
+10390,20390,Logan Wright,922.73,77,VendStation,Baltimore,MD,2025-09-11,Food
+10391,20391,Chloe Martinez,1176.4,58,OfficeSupply,Phoenix,AZ,2025-09-15,Office
+10392,20392,Grace Brown,1021.14,85,VendStation,Houston,TX,2025-09-07,Home
+10393,20393,Benjamin Smith,127.65,20,VendStation,Indianapolis,IN,2025-08-20,Office
+10394,20394,Lucas Gonzalez,164.29,1,PharmaPlus,New York,NY,2025-09-16,Health
+10395,20395,Noah Patel,135.51,56,PetCare,Orlando,FL,2025-10-05,PersonalCare
+10396,20396,Noah Johnson,138.98,71,Quick Gas,Las Vegas,NV,2025-09-11,Office
+10397,20397,Ava Garcia,623.65,100,Quick Gas,Milwaukee,WI,2025-09-01,Other
+10398,20398,Sophia King,574.19,18,Cup & Go,Atlanta,GA,2025-09-04,Digital
+10399,20399,Emma Smith,254.98,36,TechWave,Atlanta,GA,2025-10-01,Gas
+10400,20400,Aiden Martinez,1416.61,93,DriveThru,Columbus,OH,2025-08-26,Auto
+10401,20401,Noah Patel,460.46,51,BookBarn,Raleigh,NC,2025-09-18,Apparel
+10402,20402,James Hernandez,648.77,106,DriveThru,Las Vegas,NV,2025-08-18,Books
+10403,20403,Lucas Young,1421.18,26,OfficeSupply,Miami,FL,2025-08-23,Office
+10404,20404,Lucas Garcia,1103.64,82,OfficeSupply,Philadelphia,PA,2025-09-01,Apparel
+10405,20405,Ella Martinez,1225.66,51,ShoeStop,Boston,MA,2025-08-26,Entertainment
+10406,20406,William Wright,827.4,94,PetCare,Indianapolis,IN,2025-08-27,Auto
+10407,20407,Jack Garcia,1247.77,9,Bakery,Richmond,VA,2025-09-22,Digital
+10408,20408,Emma Allen,457.73,33,FurnishCo,San Francisco,CA,2025-09-24,Office
+10409,20409,Liam Thomas,1486.1,62,GameHub,Minneapolis,MN,2025-10-08,Other
+10410,20410,Scarlett Nelson,1305.1,54,GreenGrocer,Dallas,TX,2025-09-16,Gas
+10411,20411,Noah Wright,376.11,86,ShoeStop,Seattle,WA,2025-08-06,Office
+10412,20412,Zoe Hernandez,1448.75,56,WholeBuy,Austin,TX,2025-08-13,Health
+10413,20413,Ethan Clark,1121.55,72,GameHub,Indianapolis,IN,2025-08-29,Auto
+10414,20414,Aiden Wilson,697.28,87,GameHub,Indianapolis,IN,2025-10-04,Travel
+10415,20415,Aiden Johnson,726.74,38,TechWave,Nashville,TN,2025-08-11,Grocery
+10416,20416,Mason Baker,216.8,40,BookBarn,New York,NY,2025-08-27,Other
+10417,20417,Charlotte Gonzalez,716.86,57,AutoService,Indianapolis,IN,2025-09-27,Apparel
+10418,20418,Liam Garcia,71.8,91,WholeBuy,Austin,TX,2025-09-13,Grocery
+10419,20419,William Rivera,250.71,95,HomeStyle,Charlotte,NC,2025-08-23,Entertainment
+10420,20420,Lucas Lewis,642.42,60,HomeStyle,San Jose,CA,2025-09-21,Entertainment
+10421,20421,Sophia Allen,987.68,51,Corner Cafe,Milwaukee,WI,2025-08-26,Auto
+10422,20422,Amelia Anderson,586.31,91,FitGear,Chicago,IL,2025-09-05,Gas
+10423,20423,Amelia Lee,1200.26,69,StreamingCo,Portland,OR,2025-09-11,Sports
+10424,20424,James Lee,397.22,111,OfficeSupply,Charlotte,NC,2025-09-10,Office
+10425,20425,Logan Wilson,882.57,45,ShoeStop,Richmond,VA,2025-09-28,Entertainment
+10426,20426,Mason King,1060.45,39,SalonPro,Philadelphia,PA,2025-08-11,Travel
+10427,20427,Lucas Lee,361.67,15,StreamingCo,Portland,OR,2025-08-19,Other
+10428,20428,Ella Anderson,896.66,74,VendStation,San Diego,CA,2025-08-24,Digital
+10429,20429,Chloe Lewis,1041.68,83,StreamingCo,Orlando,FL,2025-08-22,Digital
+10430,20430,Isabella Patel,284.71,108,PetCare,Las Vegas,NV,2025-08-07,Pet
+10431,20431,Ava Taylor,209.12,105,VendStation,Orlando,FL,2025-10-04,Digital
+10432,20432,Grace King,740.13,91,Bakery,New York,NY,2025-10-02,Entertainment
+10433,20433,Liam Walker,51.14,98,HomeStyle,Atlanta,GA,2025-08-05,Health
+10434,20434,Ethan Lewis,436.56,100,PetCare,Philadelphia,PA,2025-10-03,Other
+10435,20435,Noah Walker,175.74,100,GreenGrocer,Raleigh,NC,2025-09-16,Electronics
+10436,20436,Zoe Baker,664.84,28,TechWave,Boston,MA,2025-09-01,Books
+10437,20437,Sebastian Nguyen,677.35,45,Bakery,Houston,TX,2025-09-26,Grocery
+10438,20438,Zoe Rivera,359.23,104,AutoService,Philadelphia,PA,2025-09-14,PersonalCare
+10439,20439,Sophia Young,213.16,27,Bakery,Chicago,IL,2025-08-08,Pet
+10440,20440,Harper Martinez,897.3,22,BookBarn,Indianapolis,IN,2025-09-07,Books
+10441,20441,Amelia Martinez,1428.83,66,FurnishCo,Raleigh,NC,2025-08-13,Travel
+10442,20442,Zoe Rivera,620.34,8,Cup & Go,Richmond,VA,2025-08-17,Travel
+10443,20443,Ethan Patel,1068.54,107,HomeStyle,Baltimore,MD,2025-09-20,Digital
+10444,20444,Emma Walker,950.44,81,TechWave,Minneapolis,MN,2025-09-27,Gas
+10445,20445,Chloe Rivera,1320.79,12,VendStation,Charlotte,NC,2025-09-05,Pet
+10446,20446,James Taylor,494.3,1,AppStore,Richmond,VA,2025-08-12,Auto
+10447,20447,Chloe King,1047.45,109,Quick Gas,San Jose,CA,2025-10-08,Office
+10448,20448,Jackson Anderson,1238.15,64,Cup & Go,Miami,FL,2025-09-06,Apparel
+10449,20449,Harper Walker,200.24,110,OfficeSupply,San Jose,CA,2025-09-13,Electronics
+10450,20450,Olivia Lee,941.14,108,PetCare,Austin,TX,2025-08-16,Entertainment
+10451,20451,James Thomas,6.01,55,FitGear,Indianapolis,IN,2025-08-17,Books
+10452,20452,Sophia Green,1399.42,36,Quick Gas,San Antonio,TX,2025-09-16,Health
+10453,20453,Liam Gonzalez,998.44,84,StreamingCo,Dallas,TX,2025-09-20,Books
+10454,20454,Levi Scott,1134.07,55,DriveThru,Houston,TX,2025-08-13,Food
+10455,20455,Jackson Taylor,121.52,76,HomeStyle,Charlotte,NC,2025-09-26,Food
+10456,20456,Ava Scott,518.64,16,TechWave,Indianapolis,IN,2025-08-17,Digital
+10457,20457,Liam Lopez,577.69,94,Clothier,Boston,MA,2025-08-14,Apparel
+10458,20458,Aiden Adams,452.39,49,AppStore,Raleigh,NC,2025-08-18,Travel
+10459,20459,Liam Clark,847.12,79,DriveThru,Seattle,WA,2025-09-26,Pet
+10460,20460,Levi Davis,943.98,20,TechWave,Las Vegas,NV,2025-09-26,Sports
+10461,20461,Liam Adams,155.2,97,WholeBuy,Philadelphia,PA,2025-09-19,Pet
+10462,20462,Grace Hernandez,1187.66,32,Cup & Go,San Antonio,TX,2025-08-11,Home
+10463,20463,Harper Young,902.01,78,PharmaPlus,Baltimore,MD,2025-08-04,Books
+10464,20464,Jackson Clark,912.36,25,AutoService,Minneapolis,MN,2025-09-07,Electronics
+10465,20465,Jack Adams,1191.7,31,OfficeSupply,Minneapolis,MN,2025-08-15,Home
+10466,20466,Charlotte Allen,892.93,68,Corner Cafe,Portland,OR,2025-09-10,Travel
+10467,20467,Ella Green,1259.27,54,ShoeStop,Orlando,FL,2025-08-23,Digital
+10468,20468,Zoe Smith,29.95,9,Corner Cafe,Denver,CO,2025-08-28,Electronics
+10469,20469,Scarlett Nguyen,1423.28,51,Subwich,Atlanta,GA,2025-10-04,PersonalCare
+10470,20470,Grace Scott,606.4,82,GreenGrocer,Orlando,FL,2025-08-20,Health
+10471,20471,Liam Garcia,123.14,118,FitGear,San Jose,CA,2025-08-20,Apparel
+10472,20472,Ella Walker,953.27,107,DriveThru,Jacksonville,FL,2025-08-09,Books
+10473,20473,Benjamin Anderson,1096.29,109,HomeStyle,Dallas,TX,2025-09-01,Gas
+10474,20474,Scarlett Anderson,178.4,79,SalonPro,Dallas,TX,2025-09-09,Entertainment
+10475,20475,Noah Johnson,1063.31,90,Corner Cafe,Seattle,WA,2025-10-03,Pet
+10476,20476,Henry Clark,1175.57,93,Cup & Go,Seattle,WA,2025-09-17,Travel
+10477,20477,Levi Wright,1310.82,94,WholeBuy,Baltimore,MD,2025-08-04,Apparel
+10478,20478,Jack Anderson,411.61,9,Cup & Go,Indianapolis,IN,2025-08-10,Digital
+10479,20479,James Clark,543.39,64,GameHub,Seattle,WA,2025-09-17,Entertainment
+10480,20480,Mia Wright,158.84,74,FurnishCo,Milwaukee,WI,2025-08-15,Home
+10481,20481,Levi Clark,8.84,110,Corner Cafe,Phoenix,AZ,2025-08-06,Digital
+10482,20482,Aiden Wilson,1380.74,23,ElectroMart,Orlando,FL,2025-09-23,Home
+10483,20483,Lucas Lopez,627.3,93,BookBarn,Denver,CO,2025-08-10,Pet
+10484,20484,Noah Clark,1011.62,7,StreamingCo,Phoenix,AZ,2025-10-06,Electronics
+10485,20485,Ella Smith,1316.1,111,PharmaPlus,Baltimore,MD,2025-09-09,Apparel
+10486,20486,Liam Lewis,687.84,48,FitGear,Atlanta,GA,2025-09-08,Home
+10487,20487,James Gonzalez,889.58,64,AppStore,Baltimore,MD,2025-08-26,Home
+10488,20488,Emma Johnson,1398.93,4,HomeStyle,Orlando,FL,2025-09-14,Food
+10489,20489,Lucas Johnson,1139.6,49,AutoService,Milwaukee,WI,2025-09-09,Grocery
+10490,20490,Jackson Clark,1474.76,54,OfficeSupply,Dallas,TX,2025-08-19,Health
+10491,20491,Liam Nguyen,1382.31,115,Subwich,San Diego,CA,2025-09-17,Auto
+10492,20492,Levi Smith,873.25,65,AirFly,San Antonio,TX,2025-09-20,Gas
+10493,20493,Amelia Walker,98.11,85,AirFly,Phoenix,AZ,2025-09-07,Health
+10494,20494,Sebastian Hernandez,1389.43,51,NewsStand,Raleigh,NC,2025-09-11,Apparel
+10495,20495,James Martinez,354.25,26,AirFly,Baltimore,MD,2025-08-14,Travel
+10496,20496,Noah Brown,677.1,41,TechWave,Boston,MA,2025-10-08,Pet
+10497,20497,Zoe Davis,680.62,60,Cup & Go,Richmond,VA,2025-08-16,Gas
+10498,20498,Sophia Rivera,1030.65,106,NewsStand,Indianapolis,IN,2025-08-06,Sports
+10499,20499,Mason Green,495.05,12,NewsStand,Phoenix,AZ,2025-09-15,Office
+10500,20500,Henry Nguyen,1017.39,34,Bakery,Seattle,WA,2025-08-04,Office

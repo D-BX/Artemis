@@ -1,8 +1,44 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 //import About from "../About";
+
+interface MappedCustomer {
+  customer_id: string;
+  nessie_customer_id?: string;
+  name?: string;
+  first_name?: string;
+  last_name?: string;
+}
+
 export default function LandingPage(){
+    const [firstName, setFirstName] = useState<string>("");
+
+    useEffect(() => {
+        const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5001";
+
+        async function fetchName() {
+            try {
+                const res = await fetch(`${backend}/api/customers-mapped`, { cache: "no-store" });
+                if (res.ok) {
+                    const data: MappedCustomer[] = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        if (data[0].first_name) {
+                            setFirstName(data[0].first_name);
+                        } else if (data[0].name) {
+                            setFirstName(data[0].name.split(" ")[0]);
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to load customer name:", e);
+            }
+        }
+
+        fetchName();
+    }, []);
+
     return(
         <div className="relative grid grid-cols-10 [grid-template-rows:repeat(10,1fr)] md:[grid-template-rows:repeat(14,80px)] min-h-screen sm:min-h-fit w-full overflow-hidden pb-8">
             {/* Gradient overlay */}
@@ -28,17 +64,17 @@ export default function LandingPage(){
                 />
             </div>
 
-            <div className="absolute z-20 left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute z-20 left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                 <Image
                     src="/images/bunny_logo.svg"
                     alt="bunny logo"
                     width={400}
                     height={600}
-                    className="object-fill"
+                    className="object-contain"
 
                 />
                 <p className="font-mono text-2xl text-[#FFE8B3] text-center ">
-                    Hello, My name is Artemis
+                    Hello {firstName && `${firstName}, `}My name is Artemis
                 </p>
 
             </div>
