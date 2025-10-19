@@ -7,8 +7,10 @@ export default function GachaPage(){
     const [showInventory, setShowInventory] = useState(false);
     const [selectedItemId, setSelectedItemId] = useState(1); // Track selected item by ID
 
+    // for gacha roll 
     const [showRoll, setShowRoll] = useState(false);
     const [rolledItem, setRolledItem] = useState(null);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     const initialPool = [
         { id: 1, name: "Rabbit", rarity: "Common", image: "images/bunny.svg", rarityColor: "border-blue-400" },
@@ -39,8 +41,14 @@ export default function GachaPage(){
         // Pick a random item from that rarity
         const newItem = filteredPool[Math.floor(Math.random() * filteredPool.length)];
 
-        setRolledItem(newItem);
+        setIsAnimating(true);
         setShowRoll(true);
+
+        // After GIF duration, reveal the item
+        setTimeout(() => {
+            setRolledItem(newItem);
+            setIsAnimating(false);
+        }, 3000); // match this to your GIF duration
     }
 
 
@@ -94,7 +102,7 @@ export default function GachaPage(){
             </div>
 
             <div className="relative z-30 col-span-10 row-span-2 flex items-center justify-center">
-                <h1 className="font-modern-antiqua text-4xl md:text-7xl text-[#FFE8B3] text-center font-bold">
+                <h1 className="font-modern-antiqua text-4xl md:text-6xl text-[#FFE8B3] text-center font-bold">
                     GACHA
                 </h1>
                 {/* Debug indicator */}
@@ -103,36 +111,40 @@ export default function GachaPage(){
                 </div> */}
             </div>
 
-            <div className="absolute z-20 left-1/2 top-[35%] -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute z-20 left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2">
                 <div className="flex flex-col items-center space-y-6">
                     <Image
                         src="/images/gacha_roll.svg"
                         alt="gacha roll logo"
-                        width={400}
-                        height={600}
+                        width={300}
+                        height={400}
                         className="object-fill"
                     />
 
                     {/* Buttons */}
-                    <div className="flex flex-col space-y-4 w-full max-w-xs">
-                        <button
-                            onClick={() => {
-                                console.log("Roll button clicked");
-                                rollGacha();
-                            }}
-                            className="font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg"
+                    <div className="flex justify-center space-x-8 mt-6">
+                        <div>
+                            <button
+                                onClick={() => {
+                                    console.log("Roll button clicked");
+                                    rollGacha();
+                                }}
+                                className="w-[400px] font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg"
+                                >
+                                Roll
+                            </button>
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    console.log("Inventory button clicked");
+                                    setShowInventory(true);
+                                }}
+                                className="w-[400px] font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg"
                             >
-                            Roll
-                        </button>
-                        <button
-                            onClick={() => {
-                                console.log("Inventory button clicked");
-                                setShowInventory(true);
-                            }}
-                            className="font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg"
-                        >
-                            Inventory
-                        </button>
+                                Inventory
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -209,19 +221,31 @@ export default function GachaPage(){
                     <div className="absolute w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] rounded-full bg-[#0B093A] blur-[125px]"></div>
 
                     <div className="flex flex-col items-center justify-center p-8 rounded-2xl z-10">
-                        <h2 className="font-modern-antiqua text-5xl text-[#FFE8B3] text-center mb-8 font-bold">
-                            YOU GOT...
-                        </h2>
-                        <img
-                            src={`/${rolledItem.image}`}
-                            className="w-50 h-50 mb-6"
-                        />
-                        <h3 className="font-modern-antiqua text-5xl font-bold text-[#FFE8B3]">
-                            {rolledItem.name}!
-                        </h3>
-                        <p className="font-mono text-lg text-[#D9D6B2] mt-2">
-                            {rolledItem.rarity}
-                        </p>
+                        {isAnimating ? (
+                            <img
+                                src="/images/gacha_animation.gif"
+                                className="absolute inset-0 w-full h-full object-cover"
+                            />
+                            ) : (
+                            rolledItem && (
+                                <>
+                                <h2 className="font-modern-antiqua text-6xl text-[#FFE8B3] font-bold mb-4">
+                                    YOU GOT...
+                                </h2>
+                                <img
+                                    src={`/${rolledItem.image}`}
+                                    alt={rolledItem.name}
+                                    className="w-60 h-60 mb-4"
+                                />
+                                <h3 className="font-modern-antiqua text-5xl text-[#FFE8B3] font-bold">
+                                    {rolledItem.name}!
+                                </h3>
+                                <p className="font-mono text-lg text-[#D9D6B2]">
+                                    {rolledItem.rarity}
+                                </p>
+                                </>
+                            )
+                            )}
                     </div>
                 </div>
             )}
