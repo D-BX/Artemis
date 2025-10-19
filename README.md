@@ -1,3 +1,4 @@
-# Artemis
+# Arterizz
 
-We're hunting our win down.
+We're hunting our rizz down.
+
