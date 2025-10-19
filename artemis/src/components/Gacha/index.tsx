@@ -5,32 +5,29 @@ import { useState } from "react";
 
 export default function GachaPage(){
     const [showInventory, setShowInventory] = useState(false);
+    const [selectedItemId, setSelectedItemId] = useState(1); // Track selected item by ID
 
-    // Sample inventory data - you can replace this with real data
     const inventoryItems = [
         {
             id: 1,
             name: "Rabbit",
             rarity: "Common",
-            image: "images/bunny.svg", // Using emoji for now
-            rarityColor: "border-blue-400",
-            selected: true
+            image: "/images/bunny.svg", 
+            rarityColor: "border-green-400",
         },
         {
             id: 2,
             name: "Bear", 
             rarity: "Rare",
-            image: "images/bear.svg",
+            image: "/images/bear.svg",
             rarityColor: "border-cyan-400",
-            selected: false
         },
         {
             id: 3,
             name: "Deer",
             rarity: "Legendary", 
-            image: "images/deer.svg",
+            image: "/images/deer.svg",
             rarityColor: "border-purple-400",
-            selected: false
         }
     ];
 
@@ -97,59 +94,64 @@ export default function GachaPage(){
                 </div>  
             </div>
 
-            {/* Inventory Modal */}
+            {/* Inventory Model */}
             {showInventory && (
                 <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm">
-                    <div className="relative bg-[#2a2547] rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto">
+                    <div className="relative bg-[#2B295A] rounded-2xl p-10 max-w-5xl w-full mx-6 max-h-[85vh] overflow-y-auto">
                         {/* Close button */}
                         <button 
                             onClick={() => {
                                 console.log("Close button clicked");
                                 setShowInventory(false);
                             }}
-                            className="absolute top-4 right-4 text-[#FFE8B3] hover:text-white text-2xl font-bold"
+                            className="absolute top-6 right-6 text-white hover:text-white text-3xl font-bold cursor-pointer hover:cursor-pointer"
                         >
-                            ×
+                            X
                         </button>
                         
                         {/* Header */}
-                        <h2 className="font-modern-antiqua text-3xl text-[#FFE8B3] text-center mb-8 font-bold">
+                        <h2 className="font-modern-antiqua text-5xl text-white text-center mb-12 font-bold">
                             INVENTORY
                         </h2>
                         
                         {/* Inventory Grid */}
-                        <div className="grid grid-cols-3 gap-6">
+                        <div className="grid grid-cols-3 gap-12">
                             {inventoryItems.map((item) => (
-                                <div key={item.id} className={`relative bg-[#1a1632] rounded-xl p-4 border-2 ${item.selected ? item.rarityColor : 'border-gray-600'} transition-all duration-300 hover:scale-105`}>
-                                    {/* Animal Image/Emoji */}
-                                    <div className="text-6xl text-center mb-4">
-                                        {item.image}
+                                <div key={item.id} className="flex flex-col items-center space-y-4">
+                                    {/* Animal SVG Box */}
+                                    <div 
+                                        onClick={() => setSelectedItemId(item.id)}
+                                        className={`relative bg-[#0B093A] rounded-xl border-2 ${
+                                            selectedItemId === item.id 
+                                                ? 'border-[#FFD700] shadow-lg ' 
+                                                : 'border-gray-600'
+                                        } transition-all duration-300 hover:scale-105 w-75 h-75 overflow-hidden cursor-pointer`}
+                                    >
+                                        <Image
+                                            src={item.image}
+                                            alt={item.name}
+                                            width={180}
+                                            height={180}
+                                            className="object-contain absolute bottom-0 left-1/2 transform -translate-x-1/2"
+                                        />
                                     </div>
                                     
-                                    {/* Animal Name */}
-                                    <h3 className="font-modern-antiqua text-[#FFE8B3] text-center text-lg font-semibold mb-2">
-                                        {item.name}
-                                    </h3>
-                                    
-                                    {/* Rarity */}
-                                    <p className="text-gray-300 text-center text-sm">
-                                        {item.rarity}
-                                    </p>
-                                    
-                                    {/* Selection indicator for rare items */}
-                                    {item.selected && (
-                                        <div className="absolute top-2 right-2 w-4 h-4 bg-cyan-400 rounded-full"></div>
-                                    )}
+                                    {/* Text content outside the box */}
+                                    <div className="text-center space-y-1">
+                                        {/* Animal Name */}
+                                        <h3 className="font-mono text-white text-2xl font-semibold">
+                                            {item.name}
+                                        </h3>
+                                        
+                                        {/* Rarity */}
+                                        <p className="text-gray-300 text-m">
+                                            {item.rarity}
+                                        </p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
                         
-                        {/* Footer */}
-                        <div className="mt-8 text-center">
-                            <p className="text-gray-400 text-sm">
-                                Collect more animals by rolling!
-                            </p>
-                        </div>
                     </div>
                 </div>
             )}
