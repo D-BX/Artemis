@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import Link from "next"
+import Link from "next/link";
+
 export default function LandingPage(){
     return(
         <div className="relative grid grid-cols-10 [grid-template-rows:repeat(10,1fr)] md:[grid-template-rows:repeat(14,80px)] min-h-screen sm:min-h-fit w-full overflow-hidden pb-8">
@@ -39,8 +40,14 @@ export default function LandingPage(){
                 <p className="font-mono text-2xl text-[#FFE8B3] text-center ">
                     Hello, My name is Artemis
                 </p>
+                <Link
+                    href="/Report"
+                    className="inline-block rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 transition"
+                >
+                    Credit Report
+                </Link>
             </div>
-            
+
         </div>
     )
 }
