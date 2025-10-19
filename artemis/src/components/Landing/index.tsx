@@ -1,51 +1,63 @@
 "use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function LandingPage(){
+    const [animalId, setAnimalId] = useState(1);
+
+    const inventoryItems = [
+        { id: 1, name: "Rabbit", rarity: "Common", image: "images/bunny.svg", logo: "/images/bunny_logo.svg" },
+        { id: 2, name: "Bear", rarity: "Rare", image: "images/bear.svg", logo: "/images/bear_logo.svg" },
+        { id: 3, name: "Deer", rarity: "Legendary", image: "images/deer.svg", logo: "/images/deer_logo.svg" },
+    ];
+
+    useEffect(() => {
+        const savedId = localStorage.getItem("selectedAnimalId");
+        if (savedId) {
+            setAnimalId(Number(savedId))
+        };
+    }, []);
+
+    const currentLogo = inventoryItems.find(item => item.id === animalId)?.logo;
+    
     return(
         <div className="relative grid grid-cols-10 [grid-template-rows:repeat(10,1fr)] md:[grid-template-rows:repeat(14,80px)] min-h-screen sm:min-h-fit w-full overflow-hidden pb-8">
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#36336A] via-[#5a5080] to-[#7a506a]" />
 
-            <div className="absolute z-20 left-0 top-4 -translate-x-1/2" >
+            <div className="absolute z-20 left-40 top-4 -translate-x-1/2" >
                 <Image
                     src="/images/starL.svg"
                     alt="stars on the left side"
-                    width={600}
-                    height={600}
+                    width={350}
+                    height={350}
                     className="object-contain"
                 />
             </div>
 
-            <div className="absolute z-20 right-0 top-4 translate-x-1/2" >
+            <div className="absolute z-20 right-40 top-4 translate-x-1/2" >
                 <Image
                     src="/images/starR.svg"
                     alt="stars on the right side"
-                    width={600}
-                    height={600}
+                    width={500}
+                    height={500}
                     className="object-contain"
                 />
             </div>
 
-            <div className="absolute z-20 left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute z-20 left-1/2 top-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                 <Image
-                    src="/images/bunny_logo.svg"
+                    src={currentLogo || "/images/bunny_logo.svg"}
                     alt="bunny logo"
                     width={400}
                     height={600}
                     className="object-fill"
 
                 />
-                <p className="font-mono text-2xl text-[#FFE8B3] text-center ">
+                <p className="font-mono text-4xl text-[#FFE8B3] text-center ">
                     Hello, My name is Artemis
                 </p>
-                <Link
-                    href="/Report"
-                    className="inline-block rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 transition"
-                >
-                    Credit Report
-                </Link>
             </div>
 
             {/* <div className="absolute z-20 left-1/2 top-[0%] -translate-x-1/2 -translate-y-1/2 flex items-start justify-center pointer-events-none">
