@@ -60,15 +60,34 @@ export default function LandingPage(){
                 </p>
             </div>
             {/* FIX: need to fix colors and change the text and all that we can put like a team pic or sum idk */}
-            {/* <div className="absolute inset-0 flex items-end justify-center pb-20">
-                <a href="#" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/images/fake_samp.png" alt=""/>
-                    <div className="flex flex-col justify-between p-4 leading-normal">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            <div className="absolute inset-0 flex items-end justify-center pb-20">
+                <a
+                    href="#"
+                    className="flex flex-col md:flex-row items-center rounded-xl
+                            bg-[#0b0a22] border border-[#121232] shadow-[0_0_25px_rgba(255,232,179,0.15)]
+                            hover:shadow-[0_0_35px_rgba(255,232,179,0.3)] hover:border-[#FFE8B3]/40
+                            transition-all duration-300 md:max-w-2xl overflow-hidden"
+                >
+                    {/* Image */}
+                    <img
+                        src="/images/fake_samp.png"
+                        alt="sample"
+                        className="object-cover w-full md:w-56 h-64 md:h-auto md:rounded-l-xl opacity-90"
+                    />
+
+                    {/* Text content */}
+                    <div className="flex flex-col justify-between p-6 md:p-8 leading-normal">
+                        <h5 className="mb-3 text-2xl font-mono font-bold tracking-tight text-[#FFE8B3]">
+                            Let the Jade Rabbit guide your journey to finacial freedom!
+                        </h5>
+                        <p className="font-mono text-white/80 text-base">
+                            Here are the biggest enterprise technology acquisitions of 2021 so far,
+                            in reverse chronological order.
+                        </p>
                     </div>
                 </a>
-            </div> */}
+            </div>
+
 
 
 

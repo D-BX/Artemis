@@ -1,7 +1,7 @@
-// app/report/page.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 import TransactionsTable, { Purchase } from "@/components/TransactionTable";
+import CreditScoreSection from "@/components/TransactionTable/credit";
 
 export const metadata: Metadata = {
   title: "Credit Report",
@@ -15,30 +15,30 @@ const purchases: Purchase[] = [
   { id: 104, item: "Gym Membership", date: "2025-10-05", amount: 45.0 },
 ];
 
-export default function Report() {
+// Make the component async to trigger the loading screen
+export default async function Report() {
+  // Simulate data loading - remove or adjust this delay as needed
+  await new Promise(resolve => setTimeout(resolve, 3000));
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden pb-20">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#36336A] via-[#5a5080] to-[#7a506a]" />
 
-      {/* Decorative star scatter (left) */}
-      <div
-        className="absolute left-0 top-[20%] -translate-x-1/2 z-10 pointer-events-none"
-        aria-hidden="true"
-      >
+      {/* Decorative star scatter */}
+      <div className="absolute inset-0 z-10">
         <Image
-          src="/images/star_scat_L.svg"
-          alt=""
-          width={200}
-          height={200}
-          className="object-contain opacity-80"
+          src="/images/stars-splay.svg"
+          alt="stars background"
+          fill
+          className="object-cover"
           priority
         />
       </div>
 
-      {/* Content wrapper (normal flow for vertical positioning) */}
+      {/* CONTENT WRAPPER */}
       <div className="relative z-10 flex flex-col items-center px-4 pt-24 space-y-16">
-        {/* Titles */}
+        {/* Header */}
         <div className="text-center">
           <h1 className="font-mono text-5xl md:text-6xl text-[#FFE8B3] drop-shadow-md">
             Credit Report
@@ -48,34 +48,38 @@ export default function Report() {
           </p>
         </div>
 
-        {/* Credit Score section */}
+        {/* CREDIT SCORE SECTION */}
+        <div className="w-full flex flex-col items-center text-center space-y-10">
+          <CreditScoreSection />
+        </div>
+
+        {/* CREDIT USAGE SECTION */}
         <div className="text-center">
-          <p className="font-mono text-3xl md:text-4xl text-[#FFE8B3] mb-10">
-            Your credit score
+          <h2 className="font-serif text-[#FFE8B3] text-3xl md:text-4xl mb-4">
+            CREDIT USAGE
+          </h2>
+          <p className="font-mono text-white/90 mb-6">
+            Your account has a credit usage of
           </p>
 
-          {/* Moon image */}
-          <div
-            className="relative w-full max-w-5xl aspect-[2430/611] bg-no-repeat bg-center bg-contain mx-auto"
-            style={{ backgroundImage: "url('/images/moon_stars.svg')" }}
-          >
-            {/* Score overlay */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <p className="tabular-nums font-mono text-6xl md:text-7xl font-bold text-black drop-shadow text-center leading-none">
-                100
-              </p>
+          <div className="relative flex justify-center items-center">
+            <div className="bg-[#FFE8B3] rounded-full w-48 h-48 flex justify-center items-center shadow-[0_0_40px_rgba(255,232,179,0.4)]">
+              <p className="font-serif text-[#2f2d54] text-6xl font-bold">655</p>
             </div>
           </div>
 
-          {/* Text below SVG */}
-          <p className="mt-8 font-mono text-xl md:text-2xl text-[#FFE8B3] text-center">
-            Excellent Credit — Keep up the great work!
+          <p className="mt-6 font-mono text-white/90">
+            based on your current balance and credit limit
           </p>
         </div>
 
-        {/* Transactions Table */}
+        {/* TRANSACTIONS TABLE */}
         <div className="w-[min(92vw,1100px)]">
-          <TransactionsTable data={purchases} />
+          <TransactionsTable
+            data={purchases}
+            bunnySrc="/images/talk_bun.svg"
+            showBubble
+          />
         </div>
       </div>
     </div>
