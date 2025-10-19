@@ -41,29 +41,33 @@ class CreditAnalyst:
 
     def _build_system_prompt(self):
 
-        system_prompt = """You are Artemis, an advanced AI credit risk analyst designed to help users understand their credit risk assessments.
+        system_prompt = """You are Artemis, an advanced AI credit risk analyst designed to help users understand their credit risk assessments and spending patterns.
 
 Your role is to:
 1. Interpret credit risk predictions from an XGBoost machine learning model
 2. Explain SHAP (SHapley Additive exPlanations) values in plain, understandable language
-3. Answer questions about specific credit features and their impact on risk
-4. Provide actionable advice on how users can improve their credit profile
+3. Answer questions about specific credit features, spending patterns, and their impact on risk
+4. Provide actionable advice on how users can improve their credit profile and spending habits
 5. Explain complex financial metrics in simple terms
+6. Analyze transaction data and spending categories to provide insights
 
 Guidelines:
-- Be empathetic and supportive - credit issues can be stressful
+- Be empathetic and supportive - financial issues can be stressful
 - Always explain technical terms in plain language
 - Focus on actionable insights, not just numbers
 - Be honest about risks but constructive about solutions
 - When discussing SHAP values, explain them as "factors that increase/decrease risk"
-- Reference specific numbers from the user's data when relevant
+- Reference specific numbers, merchants, and categories from the user's data when relevant
 - Prioritize the most impactful features in your explanations
+- When users ask about specific merchants or transactions, refer to the transaction data
+- Provide percentage breakdowns and specific dollar amounts when discussing categories
 
-Remember: You're analyzing results from a machine learning model. The model considers:
-- Credit score (300-850 range)
+Remember: You're analyzing results from a machine learning model that considers:
 - Traditional credit factors (utilization, payment history, credit age, inquiries)
 - Smart banking features (spending patterns, categories, velocity)
 - Payment behavior (recurring payments, consistency, timing)
+- Spending consistency and budget adherence
+- Transaction patterns and merchant diversity
 """
 
         if self.current_prediction:
@@ -76,15 +80,46 @@ Risk Probability: {self.current_prediction['probability']:.1%}
 """
 
             if self.current_user_data:
-                context_info += "\n\nUSER'S KEY CREDIT METRICS:\n"
+                context_info += "\n\nUSER'S SPENDING SUMMARY:\n"
 
-                if 'credit_score' in self.current_user_data:
-                    context_info += f"- credit_score: {self.current_user_data['credit_score']:.0f}\n"
+                # Add spending overview
+                if 'total_spending' in self.current_user_data:
+                    context_info += f"- Total Spending: ${self.current_user_data['total_spending']:.2f}\n"
+                if 'monthly_budget' in self.current_user_data:
+                    context_info += f"- Monthly Budget: ${self.current_user_data['monthly_budget']:.2f}\n"
+                if 'budget_overage_amount' in self.current_user_data:
+                    overage = self.current_user_data['budget_overage_amount']
+                    status = "over" if overage > 0 else "under"
+                    context_info += f"- Budget Status: ${abs(overage):.2f} {status} budget\n"
+                if 'spending_velocity' in self.current_user_data:
+                    context_info += f"- Daily Spending Rate: ${self.current_user_data['spending_velocity']:.2f}/day\n"
+                if 'payment_consistency' in self.current_user_data:
+                    context_info += f"- Spending Consistency Score: {self.current_user_data['payment_consistency']:.0f}/100\n"
+                if 'num_transactions' in self.current_user_data:
+                    context_info += f"- Number of Transactions: {self.current_user_data['num_transactions']:.0f}\n"
+                if 'num_categories' in self.current_user_data:
+                    context_info += f"- Number of Categories: {self.current_user_data['num_categories']:.0f}\n"
 
+                # Add category breakdown
+                context_info += "\n\nSPENDING BY CATEGORY:\n"
+                category_keys = [k for k in self.current_user_data.keys() if k.startswith('spending_') and not k.endswith('_pct') and k not in ['spending_velocity']]
+                for key in sorted(category_keys, key=lambda k: self.current_user_data.get(k, 0), reverse=True)[:5]:
+                    amount = self.current_user_data[key]
+                    pct_key = f"{key}_pct"
+                    pct = self.current_user_data.get(pct_key, 0)
+                    clean_name = key.replace('spending_', '').replace('_', ' ').title()
+                    context_info += f"- {clean_name}: ${amount:.2f} ({pct:.1f}%)\n"
+
+                # Add top merchants if available
+                if 'top_merchants' in self.current_user_data:
+                    context_info += f"\n\nTOP MERCHANTS:\n{self.current_user_data['top_merchants']}\n"
+
+                # Add other key metrics
+                context_info += "\n\nOTHER KEY METRICS:\n"
                 key_metrics = [
                     'credit_utilization', 'payment_history_pct', 'credit_age_months',
-                    'hard_inquiries', 'total_spending_pct', 'spending_velocity',
-                    'impulse_spending_score', 'recurring_payment_ratio'
+                    'hard_inquiries', 'total_spending_pct', 'impulse_spending_score',
+                    'recurring_payment_ratio', 'budget_adherence'
                 ]
                 for metric in key_metrics:
                     if metric in self.current_user_data:

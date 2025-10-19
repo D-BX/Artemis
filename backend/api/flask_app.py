@@ -73,26 +73,91 @@ def chat():
         if not message:
             return jsonify({'error': 'Message is required'}), 400
 
+        # Create rich context from spending data if provided
         if spending_data:
-            user_context = {
-                'total_spent': spending_data.get('totalSpent', 0),
-                'spending_rate': spending_data.get('spendingRate', 0),
-                'cash_stability': spending_data.get('cashStability', 0),
-                'budget_overage': spending_data.get('budgetOverage', 0),
+            # Build user features dict for credit analyst
+            total_spent = spending_data.get('totalSpent', 0)
+            budget = spending_data.get('monthlyBudget', 2000)
+
+            user_features = {
+                'total_spending': total_spent,
+                'monthly_budget': budget,
+                'total_spending_pct': min(200, (total_spent / budget) * 100),
+                'spending_velocity': spending_data.get('spendingRate', 0),
+                'payment_consistency': spending_data.get('cashStability', 0),
+                'impulse_spending_score': max(0, 100 - spending_data.get('cashStability', 0)),
+                'budget_adherence': 100 - min(100, abs(spending_data.get('budgetOverage', 0) / budget * 100)),
+                'budget_overage_amount': spending_data.get('budgetOverage', 0),
+                'days_in_period': spending_data.get('daysInPeriod', 30),
+                'num_transactions': len(spending_data.get('transactions', [])),
             }
 
-            if spending_data.get('categories'):
-                for category, amount in spending_data['categories'].items():
-                    user_context[f'spending_{category.lower()}'] = amount
+            # Add category spending details
+            categories = spending_data.get('categories', {})
+            for category, amount in categories.items():
+                clean_category = category.lower().replace(' & ', '_').replace(' ', '_')
+                user_features[f'spending_{clean_category}'] = amount
+                user_features[f'spending_{clean_category}_pct'] = (amount / total_spent * 100) if total_spent > 0 else 0
 
-            credit_analyst.set_user_data(user_context)
+            # Add transaction details summary
+            transactions = spending_data.get('transactions', [])
+            if transactions:
+                user_features['avg_transaction_amount'] = total_spent / len(transactions) if len(transactions) > 0 else 0
+                user_features['num_categories'] = len(categories)
 
-        response = credit_analyst.ask(message)
+                # Get top merchants
+                merchant_totals = {}
+                for txn in transactions:
+                    merchant = txn.get('merchant', 'Unknown')
+                    merchant_totals[merchant] = merchant_totals.get(merchant, 0) + txn.get('amount', 0)
+
+                top_merchants = sorted(merchant_totals.items(), key=lambda x: x[1], reverse=True)[:5]
+                user_features['top_merchants'] = ', '.join([f"{m[0]} (${m[1]:.2f})" for m in top_merchants])
+
+            # Build top features list for SHAP-style explanation
+            top_features = [
+                {
+                    'feature': 'Spending Consistency',
+                    'value': spending_data.get('cashStability', 0),
+                    'shap_value': 0.15 if spending_data.get('cashStability', 0) >= 70 else -0.15,
+                },
+                {
+                    'feature': 'Budget Adherence',
+                    'value': user_features['budget_adherence'],
+                    'shap_value': 0.12 if spending_data.get('budgetOverage', 0) <= 0 else -0.18,
+                },
+                {
+                    'feature': 'Spending Velocity',
+                    'value': spending_data.get('spendingRate', 0),
+                    'shap_value': -0.10 if spending_data.get('spendingRate', 0) > 100 else 0.08,
+                },
+            ]
+
+            # Set context for credit analyst
+            prediction_context = {
+                'prediction_proba': 0.5,  # Neutral starting point
+                'prediction_label': 'MODERATE RISK',
+                'user_features': user_features,
+                'top_features': top_features,
+                'spending_summary': {
+                    'total_spent': total_spent,
+                    'categories': categories,
+                    'transactions': transactions[:10],  # Include first 10 transactions as examples
+                    'budget_status': 'over budget' if spending_data.get('budgetOverage', 0) > 0 else 'under budget',
+                }
+            }
+
+            credit_analyst.set_context(prediction_context)
+
+        # Ask the question to the LLM
+        response = credit_analyst.ask_question(message)
 
         return jsonify({'response': response})
 
     except Exception as e:
         print(f"Error in chat endpoint: {e}")
+        import traceback
+        traceback.print_exc()
         return jsonify({'error': str(e)}), 500
 
 
