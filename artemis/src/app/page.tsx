@@ -6,12 +6,11 @@ import LandingPage from "@/components/Landing";
 import About from "@/components/About";
 //import Report from "@/components/Report/page";
 import Gacha from "@/components/Gacha";
-import Game from "@/components/Game";
 export default function Home() {
   return (
     <div>
         {/* <ScrollToTop /> */}
-        <Game />
+        <LandingPage />
         {/* <About /> */}
         {/* <Gacha /> */}
     </div>
