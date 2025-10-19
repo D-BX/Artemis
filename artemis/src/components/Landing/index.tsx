@@ -2,6 +2,47 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+//import About from "../About";
+
+interface MappedCustomer {
+  customer_id: string;
+  nessie_customer_id?: string;
+  name?: string;
+  first_name?: string;
+  last_name?: string;
+}
+
+export default function LandingPage(){
+    const [firstName, setFirstName] = useState<string>("");
+    const [showTyping, setShowTyping] = useState<boolean>(false);
+
+    useEffect(() => {
+        const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5001";
+
+        async function fetchName() {
+            try {
+                const res = await fetch(`${backend}/api/customers-mapped`, { cache: "no-store" });
+                if (res.ok) {
+                    const data: MappedCustomer[] = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        if (data[0].first_name) {
+                            setFirstName(data[0].first_name);
+                        } else if (data[0].name) {
+                            setFirstName(data[0].name.split(" ")[0]);
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to load customer name:", e);
+            }
+        }
+
+        fetchName();
+        // Trigger typing animation after component mounts
+        setTimeout(() => setShowTyping(true), 100);
+    }, []);
+
 
 export default function LandingPage(){
     const [animalId, setAnimalId] = useState(1);
@@ -52,6 +93,15 @@ export default function LandingPage(){
                     alt="bunny logo"
                     width={400}
                     height={600}
+                    className="object-contain"
+
+                />
+                <div className="w-full flex justify-center">
+                    <p className={`font-mono text-3xl text-[#FFE8B3] text-center ${showTyping ? 'typing-text' : 'opacity-0'}`}>
+                        Hello {firstName && `${firstName}, `}I am Artemis
+                    </p>
+                </div>
+
                     className="object-fill"
                 />
                 <p className="typing-text font-mono text-3xl text-[#FFE8B3] text-center">

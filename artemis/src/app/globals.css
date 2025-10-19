@@ -78,6 +78,36 @@ body {
   scrollbar-color: #FFE8B3 #36336A;
 }
 
+/* Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #FFE8B3;
+  }
+}
+
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 3px solid #FFE8B3;
+  white-space: nowrap;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+  animation-fill-mode: forwards;
+}
+
 @keyframes fade-out-soft {
   from { opacity: 1; }
   to { opacity: 0; visibility: hidden; }

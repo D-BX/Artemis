@@ -2,6 +2,7 @@ import Image from "next/image";
 //import ScrollToTop from "@/components/ScrollToTop";
 import type { Metadata } from "next";
 import LandingPage from "@/components/Landing";
+import CustomerGreeting from "@/components/CustomerGreeting";
 //import Report from "@/components/Report/page";
 import About from "@/components/About";
 //import Report from "@/components/Report/page";
@@ -11,6 +12,8 @@ export default function Home() {
     <div>
         {/* <ScrollToTop /> */}
         <LandingPage />
+        <CustomerGreeting />
+        {/* <Game /> */}
         {/* <About /> */}
         {/* <Gacha /> */}
     </div>
