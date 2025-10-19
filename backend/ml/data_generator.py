@@ -1,8 +1,3 @@
-"""
-Synthetic Credit Data Generator
-Generates realistic credit and banking data for credit risk modeling
-"""
-
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
@@ -15,7 +10,6 @@ np.random.seed(42)
 
 
 class CreditDataGenerator:
-    """Generate synthetic credit and banking data"""
 
     def __init__(self, n_samples=1000):
         self.n_samples = n_samples
@@ -26,35 +20,24 @@ class CreditDataGenerator:
         ]
 
     def generate_traditional_credit_features(self):
-        """Generate traditional credit bureau features"""
         data = []
 
         for i in range(self.n_samples):
-            # Credit utilization (0-100%)
             credit_limit = np.random.uniform(1000, 50000)
-            credit_used = np.random.uniform(0, credit_limit * 1.2)  # Can go over limit
+            credit_used = np.random.uniform(0, credit_limit * 1.2)
             credit_utilization = min((credit_used / credit_limit) * 100, 150)
 
-            # Age of credit (months)
             credit_age_months = np.random.gamma(shape=3, scale=20)
-
-            # Number of hard inquiries (last 12 months)
-            # Riskier profiles tend to have more inquiries
             hard_inquiries = np.random.poisson(lam=2)
 
-            # Payment history (% on-time payments over last 24 months)
-            base_payment_rate = np.random.beta(8, 2) * 100  # Skewed toward good payment
+            base_payment_rate = np.random.beta(8, 2) * 100
             payment_history_pct = min(100, base_payment_rate)
 
-            # Number of late payments (30, 60, 90 days)
             late_30_days = np.random.poisson(lam=1) if payment_history_pct < 90 else 0
             late_60_days = np.random.poisson(lam=0.5) if payment_history_pct < 80 else 0
             late_90_days = np.random.poisson(lam=0.3) if payment_history_pct < 70 else 0
 
-            # Number of credit accounts
             num_credit_accounts = np.random.poisson(lam=5) + 1
-
-            # Total credit limit across all accounts
             total_credit_limit = credit_limit * np.random.uniform(1.5, 4)
 
             data.append({
@@ -73,19 +56,15 @@ class CreditDataGenerator:
         return pd.DataFrame(data)
 
     def generate_spending_patterns(self):
-        """Generate spending category and behavioral features"""
         data = []
 
         for i in range(self.n_samples):
-            # Monthly income (used to normalize spending)
             monthly_income = np.random.lognormal(mean=10, sigma=0.6)
 
-            # Generate spending by category (as % of income)
             spending_by_category = {}
             total_spending = 0
 
             for category in self.spending_categories:
-                # Different categories have different typical spending levels
                 if category == 'groceries':
                     pct = np.random.uniform(5, 15)
                 elif category == 'dining':
@@ -104,21 +83,14 @@ class CreditDataGenerator:
                     pct = np.random.uniform(0, 10)
                 elif category == 'subscriptions':
                     pct = np.random.uniform(1, 5)
-                else:  # miscellaneous
+                else:
                     pct = np.random.uniform(1, 6)
 
                 spending_by_category[f'spending_{category}_pct'] = pct
                 total_spending += pct
 
-            # Total spending as % of income
             total_spending_pct = total_spending
-
-            # Spending velocity (change in spending over time)
-            # Positive = increasing spending, negative = decreasing
-            spending_velocity = np.random.normal(0, 15)  # % change per month
-
-            # Impulse spending score (0-100)
-            # Based on frequency of unusual large purchases
+            spending_velocity = np.random.normal(0, 15)
             impulse_spending_score = np.random.beta(2, 5) * 100
 
             data.append({
@@ -132,30 +104,14 @@ class CreditDataGenerator:
         return pd.DataFrame(data)
 
     def generate_payment_patterns(self):
-        """Generate time series payment behavior patterns"""
         data = []
 
         for i in range(self.n_samples):
-            # Recurring payment ratio (0-100%)
-            # Higher = more predictable/stable payment pattern
             recurring_payment_ratio = np.random.beta(4, 2) * 100
-
-            # One-time payment ratio
             onetime_payment_ratio = 100 - recurring_payment_ratio
-
-            # Payment consistency score (0-100)
-            # Measures how consistent payment amounts are month-to-month
             payment_consistency = np.random.beta(5, 2) * 100
-
-            # Payment timing regularity (days variance from due date)
-            # Lower = more regular, pays on time
             payment_timing_variance = np.random.exponential(scale=5)
-
-            # Minimum payment frequency (% of times only min payment made)
             min_payment_frequency = np.random.beta(2, 8) * 100
-
-            # Average days before due date payment is made
-            # Positive = early, negative = late
             avg_days_before_due = np.random.normal(2, 7)
 
             data.append({
@@ -169,14 +125,31 @@ class CreditDataGenerator:
 
         return pd.DataFrame(data)
 
+    def generate_credit_score(self, df):
+        base_score = 850
+
+        score = base_score - (df['credit_utilization'] - 30) * 2.5
+        score -= (100 - df['payment_history_pct']) * 3.0
+        score += (df['credit_age_months'] / 12) * 5
+        score -= df['hard_inquiries'] * 15
+        score -= df['late_30_days'] * 20
+        score -= df['late_60_days'] * 40
+        score -= df['late_90_days'] * 60
+
+        score -= (df['total_spending_pct'] - 80) * 1.5
+        score -= df['impulse_spending_score'] * 0.5
+        score += (df['payment_consistency'] - 50) * 0.8
+        score -= np.abs(df['avg_days_before_due']) * 2
+
+        score += np.random.normal(0, 25, size=len(df))
+
+        credit_score = np.clip(score, 300, 850)
+
+        return credit_score.astype(int)
+
     def generate_target_variable(self, df):
-        """
-        Generate credit risk target based on features
-        1 = high risk (likely to default), 0 = low risk
-        """
         risk_score = 0
 
-        # Traditional credit factors
         risk_score += (df['credit_utilization'] > 80) * 15
         risk_score += (df['credit_age_months'] < 12) * 10
         risk_score += (df['hard_inquiries'] > 4) * 8
@@ -184,25 +157,20 @@ class CreditDataGenerator:
         risk_score += df['late_60_days'] * 10
         risk_score += df['late_90_days'] * 15
 
-        # Spending pattern factors
         risk_score += (df['total_spending_pct'] > 100) * 12
         risk_score += (df['spending_velocity'] > 20) * 8
         risk_score += (df['impulse_spending_score']) * 0.1
 
-        # Payment pattern factors
         risk_score += (df['min_payment_frequency'] > 50) * 10
         risk_score += (df['payment_timing_variance'] > 10) * 5
         risk_score += (df['avg_days_before_due'] < -5) * 8
 
-        # Add some randomness
         risk_score += np.random.normal(0, 10, size=len(df))
 
-        # Convert to binary (threshold can be adjusted)
-        threshold = np.percentile(risk_score, 70)  # Top 30% are high risk
+        threshold = np.percentile(risk_score, 70)
         return (risk_score > threshold).astype(int)
 
     def generate_dataset(self):
-        """Generate complete synthetic dataset"""
         print("Generating traditional credit features...")
         traditional_features = self.generate_traditional_credit_features()
 
@@ -212,30 +180,31 @@ class CreditDataGenerator:
         print("Generating payment patterns...")
         payment_features = self.generate_payment_patterns()
 
-        # Combine all features
         df = pd.concat([traditional_features, spending_features, payment_features], axis=1)
+
+        print("Generating credit scores...")
+        df['credit_score'] = self.generate_credit_score(df)
 
         print("Generating target variable (credit risk)...")
         df['is_high_risk'] = self.generate_target_variable(df)
 
         print(f"\nDataset generated: {len(df)} samples")
-        print(f"Features: {len(df.columns) - 1}")
+        print(f"Features: {len(df.columns) - 2}")
+        print(f"Credit score range: {df['credit_score'].min()} - {df['credit_score'].max()}")
+        print(f"Average credit score: {df['credit_score'].mean():.0f}")
         print(f"High risk ratio: {df['is_high_risk'].mean():.2%}")
 
         return df
 
 
 if __name__ == "__main__":
-    # Generate sample dataset
     generator = CreditDataGenerator(n_samples=5000)
     df = generator.generate_dataset()
 
-    # Save to CSV
     output_file = "credit_data_synthetic.csv"
     df.to_csv(output_file, index=False)
     print(f"\nData saved to {output_file}")
 
-    # Display summary statistics
     print("\n" + "="*50)
     print("DATASET SUMMARY")
     print("="*50)

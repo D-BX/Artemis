@@ -3,7 +3,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import shap
-from credit_risk_model import CreditRiskModel
+try:
+    from .credit_risk_model import CreditRiskModel
+except ImportError:
+    from credit_risk_model import CreditRiskModel
 
 class ModelInterpreter:
     #this is where the XAI comes in - explaining decisions
