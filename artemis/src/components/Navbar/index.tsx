@@ -42,6 +42,12 @@ export default function Navbar() {
             className="w-16 h-16 flex items-center justify-center"
             aria-label="Gacha"
           />
+
+          <Link
+            href="/game"
+            className="w-16 h-16 flex items-center justify-center"
+            aria-label="Game"
+          />
         </div>
       </div>
     </nav>
