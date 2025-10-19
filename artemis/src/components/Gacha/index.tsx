@@ -42,12 +42,14 @@ export default function GachaPage(){
         setRolledItem(newItem);
         setShowRoll(true);
     }
+
+
     const inventoryItems = [
         {
             id: 1,
             name: "Rabbit",
             rarity: "Common",
-            image: "/images/bunny_logo.svg",
+            image: "/images/bunny.svg",
             rarityColor: "border-green-400",
         },
         {
@@ -113,7 +115,13 @@ export default function GachaPage(){
 
                     {/* Buttons */}
                     <div className="flex flex-col space-y-4 w-full max-w-xs">
-                        <button className="font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg">
+                        <button
+                            onClick={() => {
+                                console.log("Roll button clicked");
+                                rollGacha();
+                            }}
+                            className="font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg"
+                            >
                             Roll
                         </button>
                         <button
