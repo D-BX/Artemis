@@ -1,8 +1,39 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function GachaPage(){
+    const [showInventory, setShowInventory] = useState(false);
+
+    // Sample inventory data - you can replace this with real data
+    const inventoryItems = [
+        {
+            id: 1,
+            name: "Rabbit",
+            rarity: "Common",
+            image: "images/bunny.svg", // Using emoji for now
+            rarityColor: "border-blue-400",
+            selected: true
+        },
+        {
+            id: 2,
+            name: "Bear", 
+            rarity: "Rare",
+            image: "images/bear.svg",
+            rarityColor: "border-cyan-400",
+            selected: false
+        },
+        {
+            id: 3,
+            name: "Deer",
+            rarity: "Legendary", 
+            image: "images/deer.svg",
+            rarityColor: "border-purple-400",
+            selected: false
+        }
+    ];
+
     return(
         <div className="relative grid grid-cols-10 [grid-template-rows:repeat(10,1fr)] md:[grid-template-rows:repeat(14,80px)] min-h-screen sm:min-h-fit w-full overflow-hidden pb-8">
             {/* Gradient overlay */}
@@ -32,6 +63,10 @@ export default function GachaPage(){
                 <h1 className="font-modern-antiqua text-4xl md:text-7xl text-[#FFE8B3] text-center font-bold">
                     GACHA
                 </h1>
+                {/* Debug indicator */}
+                {/* <div className="absolute top-16 text-white text-sm">
+                    {showInventory ? "Inventory is open" : "Inventory is closed"}
+                </div> */}
             </div>
 
             <div className="absolute z-20 left-1/2 top-[35%] -translate-x-1/2 -translate-y-1/2">
@@ -49,12 +84,75 @@ export default function GachaPage(){
                         <button className="font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg">
                             Roll
                         </button>
-                        <button className="font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg">
+                        <button 
+                            onClick={() => {
+                                console.log("Inventory button clicked");
+                                setShowInventory(true);
+                            }}
+                            className="font-mono bg-[#FFE8B3] text-[#5a5080] px-8 py-4 rounded-full text-xl font-semibold hover:bg-[#F5D982] transition-all duration-300 shadow-lg"
+                        >
                             Inventory
                         </button>
                     </div>
                 </div>  
             </div>
+
+            {/* Inventory Modal */}
+            {showInventory && (
+                <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                    <div className="relative bg-[#2a2547] rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto">
+                        {/* Close button */}
+                        <button 
+                            onClick={() => {
+                                console.log("Close button clicked");
+                                setShowInventory(false);
+                            }}
+                            className="absolute top-4 right-4 text-[#FFE8B3] hover:text-white text-2xl font-bold"
+                        >
+                            ×
+                        </button>
+                        
+                        {/* Header */}
+                        <h2 className="font-modern-antiqua text-3xl text-[#FFE8B3] text-center mb-8 font-bold">
+                            INVENTORY
+                        </h2>
+                        
+                        {/* Inventory Grid */}
+                        <div className="grid grid-cols-3 gap-6">
+                            {inventoryItems.map((item) => (
+                                <div key={item.id} className={`relative bg-[#1a1632] rounded-xl p-4 border-2 ${item.selected ? item.rarityColor : 'border-gray-600'} transition-all duration-300 hover:scale-105`}>
+                                    {/* Animal Image/Emoji */}
+                                    <div className="text-6xl text-center mb-4">
+                                        {item.image}
+                                    </div>
+                                    
+                                    {/* Animal Name */}
+                                    <h3 className="font-modern-antiqua text-[#FFE8B3] text-center text-lg font-semibold mb-2">
+                                        {item.name}
+                                    </h3>
+                                    
+                                    {/* Rarity */}
+                                    <p className="text-gray-300 text-center text-sm">
+                                        {item.rarity}
+                                    </p>
+                                    
+                                    {/* Selection indicator for rare items */}
+                                    {item.selected && (
+                                        <div className="absolute top-2 right-2 w-4 h-4 bg-cyan-400 rounded-full"></div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                        
+                        {/* Footer */}
+                        <div className="mt-8 text-center">
+                            <p className="text-gray-400 text-sm">
+                                Collect more animals by rolling!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            )}
 
         </div>
     )
