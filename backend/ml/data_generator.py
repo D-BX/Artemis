@@ -125,6 +125,28 @@ class CreditDataGenerator:
 
         return pd.DataFrame(data)
 
+    def generate_credit_score(self, df):
+        base_score = 850
+
+        score = base_score - (df['credit_utilization'] - 30) * 2.5
+        score -= (100 - df['payment_history_pct']) * 3.0
+        score += (df['credit_age_months'] / 12) * 5
+        score -= df['hard_inquiries'] * 15
+        score -= df['late_30_days'] * 20
+        score -= df['late_60_days'] * 40
+        score -= df['late_90_days'] * 60
+
+        score -= (df['total_spending_pct'] - 80) * 1.5
+        score -= df['impulse_spending_score'] * 0.5
+        score += (df['payment_consistency'] - 50) * 0.8
+        score -= np.abs(df['avg_days_before_due']) * 2
+
+        score += np.random.normal(0, 25, size=len(df))
+
+        credit_score = np.clip(score, 300, 850)
+
+        return credit_score.astype(int)
+
     def generate_target_variable(self, df):
         risk_score = 0
 
@@ -160,11 +182,16 @@ class CreditDataGenerator:
 
         df = pd.concat([traditional_features, spending_features, payment_features], axis=1)
 
+        print("Generating credit scores...")
+        df['credit_score'] = self.generate_credit_score(df)
+
         print("Generating target variable (credit risk)...")
         df['is_high_risk'] = self.generate_target_variable(df)
 
         print(f"\nDataset generated: {len(df)} samples")
-        print(f"Features: {len(df.columns) - 1}")
+        print(f"Features: {len(df.columns) - 2}")
+        print(f"Credit score range: {df['credit_score'].min()} - {df['credit_score'].max()}")
+        print(f"Average credit score: {df['credit_score'].mean():.0f}")
         print(f"High risk ratio: {df['is_high_risk'].mean():.2%}")
 
         return df

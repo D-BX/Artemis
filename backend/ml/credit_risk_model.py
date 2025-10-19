@@ -7,7 +7,7 @@ from sklearn.metrics import (
 )
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pickle
+import joblib
 
 class CreditRiskModel:
     #using xgboost for a credit risk prediction model
@@ -134,21 +134,22 @@ class CreditRiskModel:
         if not self.is_fitted:
             raise ValueError("Model must be trained before saving")
 
-        with open(filepath, 'wb') as f:
-            pickle.dump(self, f)
+        joblib.dump(self, filepath)
         print(f"Model saved to {filepath}")
 
     @staticmethod
     def load_model(filepath='credit_risk_model.pkl'):
-        with open(filepath, 'rb') as f:
-            model = pickle.load(f)
+        model = joblib.load(filepath)
         print(f"Model loaded from {filepath}")
         return model
 
 
 if __name__ == "__main__":
+    import os
     print("Loading synthetic credit data...")
-    df = pd.read_csv("credit_data_synthetic.csv")
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    data_path = os.path.join(base_dir, "outputs", "credit_data_synthetic.csv")
+    df = pd.read_csv(data_path)
 
     model = CreditRiskModel()
 
@@ -163,4 +164,5 @@ if __name__ == "__main__":
     print("\nTop 10 Most Important Features:")
     print(feature_importance.head(10))
 
-    model.save_model('credit_risk_model.pkl')
+    model_path = os.path.join(base_dir, "outputs", "credit_risk_model.pkl")
+    model.save_model(model_path)

@@ -34,7 +34,8 @@ test_user = {
     'payment_consistency': 55.0,
     'payment_timing_variance': 8.5,
     'min_payment_frequency': 45.0,
-    'avg_days_before_due': -3.0
+    'avg_days_before_due': -3.0,
+    'credit_score': 580
 }
 
 print("="*80)

@@ -36,7 +36,10 @@ class PredictionManager:
     def load_model(self, model_path):
         """Load trained credit risk model"""
         try:
-            self.model = CreditRiskModel.load_model(model_path)
+            import joblib
+            import sys
+            sys.modules['__main__'].CreditRiskModel = CreditRiskModel
+            self.model = joblib.load(model_path)
             self.model_path = model_path
             print(f"Model loaded successfully from {model_path}")
         except Exception as e:

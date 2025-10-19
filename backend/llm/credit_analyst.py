@@ -60,6 +60,7 @@ Guidelines:
 - Prioritize the most impactful features in your explanations
 
 Remember: You're analyzing results from a machine learning model. The model considers:
+- Credit score (300-850 range)
 - Traditional credit factors (utilization, payment history, credit age, inquiries)
 - Smart banking features (spending patterns, categories, velocity)
 - Payment behavior (recurring payments, consistency, timing)
@@ -76,6 +77,10 @@ Risk Probability: {self.current_prediction['probability']:.1%}
 
             if self.current_user_data:
                 context_info += "\n\nUSER'S KEY CREDIT METRICS:\n"
+
+                if 'credit_score' in self.current_user_data:
+                    context_info += f"- credit_score: {self.current_user_data['credit_score']:.0f}\n"
+
                 key_metrics = [
                     'credit_utilization', 'payment_history_pct', 'credit_age_months',
                     'hard_inquiries', 'total_spending_pct', 'spending_velocity',
