@@ -5,7 +5,7 @@ export default function Home() {
     <div>
         {/* <ScrollToTop /> */}
         <LandingPage />
-        <CustomerGreeting />
+        {/* <CustomerGreeting /> */}
         {/* <Game /> */}
         {/* <About /> */}
         {/* <Gacha /> */}
