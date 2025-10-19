@@ -1,57 +1,93 @@
 "use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 //import About from "../About";
 export default function LandingPage(){
+    const [animalId, setAnimalId] = useState(1);
+
+    const inventoryItems = [
+        { id: 1, name: "Rabbit", rarity: "Common", image: "images/bunny.svg", logo: "/images/bunny_logo.svg" },
+        { id: 2, name: "Bear", rarity: "Rare", image: "images/bear.svg", logo: "/images/bear_logo.svg" },
+        { id: 3, name: "Deer", rarity: "Legendary", image: "images/deer.svg", logo: "/images/deer_logo.svg" },
+    ];
+
+    useEffect(() => {
+        const savedId = localStorage.getItem("selectedAnimalId");
+        if (savedId) {
+            setAnimalId(Number(savedId))
+        };
+    }, []);
+
+    const currentLogo = inventoryItems.find(item => item.id === animalId)?.logo;
+    
     return(
         <div className="relative grid grid-cols-10 [grid-template-rows:repeat(10,1fr)] md:[grid-template-rows:repeat(14,80px)] min-h-screen sm:min-h-fit w-full overflow-hidden pb-8">
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#36336A] via-[#5a5080] to-[#7a506a]" />
 
-            <div className="absolute z-20 left-0 top-4 -translate-x-1/2" >
+            <div className="absolute z-20 left-40 top-4 -translate-x-1/2" >
                 <Image
                     src="/images/starL.svg"
                     alt="stars on the left side"
-                    width={600}
-                    height={600}
+                    width={350}
+                    height={350}
                     className="object-contain"
                 />
             </div>
 
-            <div className="absolute z-20 right-0 top-4 translate-x-1/2" >
+            <div className="absolute z-20 right-40 top-4 translate-x-1/2" >
                 <Image
                     src="/images/starR.svg"
                     alt="stars on the right side"
-                    width={600}
-                    height={600}
+                    width={500}
+                    height={500}
                     className="object-contain"
                 />
             </div>
 
-            <div className="absolute z-20 left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute z-20 left-1/2 top-[25%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                 <Image
-                    src="/images/bunny_logo.svg"
+                    src={currentLogo || "/images/bunny_logo.svg"}
                     alt="bunny logo"
                     width={400}
                     height={600}
                     className="object-fill"
 
                 />
-                <p className="font-mono text-2xl text-[#FFE8B3] text-center ">
-                    Hello, My name is Artemis
+                <p className="typing-text font-mono text-3xl text-[#FFE8B3] text-center">
+                    Hello, my name is Artemis
                 </p>
-
             </div>
             {/* FIX: need to fix colors and change the text and all that we can put like a team pic or sum idk */}
-            {/* <div className="absolute inset-0 flex items-end justify-center pb-20">
-                <a href="#" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="/images/fake_samp.png" alt=""/>
-                    <div className="flex flex-col justify-between p-4 leading-normal">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            <div className="absolute inset-0 flex items-end justify-center pb-20">
+                <a
+                    href="#"
+                    className="flex flex-col md:flex-row items-center rounded-xl
+                            bg-[#0b0a22] border border-[#121232] shadow-[0_0_25px_rgba(255,232,179,0.15)]
+                            hover:shadow-[0_0_35px_rgba(255,232,179,0.3)] hover:border-[#FFE8B3]/40
+                            transition-all duration-300 md:max-w-2xl overflow-hidden"
+                >
+                    {/* Image */}
+                    <img
+                        src="/images/fake_samp.png"
+                        alt="sample"
+                        className="object-cover w-full md:w-56 h-64 md:h-auto md:rounded-l-xl opacity-90"
+                    />
+
+                    {/* Text content */}
+                    <div className="flex flex-col justify-between p-6 md:p-8 leading-normal">
+                        <h5 className="mb-3 text-2xl font-mono font-bold tracking-tight text-[#FFE8B3]">
+                            Let the Jade Rabbit guide your journey to finacial freedom!
+                        </h5>
+                        <p className="font-mono text-white/80 text-base">
+                            Here are the biggest enterprise technology acquisitions of 2021 so far,
+                            in reverse chronological order.
+                        </p>
                     </div>
                 </a>
-            </div> */}
+            </div>
+
 
 
 
