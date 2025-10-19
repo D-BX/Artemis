@@ -39,7 +39,6 @@ export default function LandingPage(){
                 <p className="font-mono text-2xl text-[#FFE8B3] text-center ">
                     Hello, My name is Artemis
                 </p>
-
             </div>
             
         </div>
