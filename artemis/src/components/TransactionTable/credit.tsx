@@ -6,7 +6,7 @@ export default function CreditScoreSection() {
   return (
     <section className="relative flex flex-col items-center text-center py-12">
       {/* Title */}
-      <h2 className="text-[#FFE8B3] font-serif text-4xl md:text-5xl mb-2 tracking-wide">
+      <h2 className="text-[#FFE8B3] font-modern-antiqua text-4xl md:text-5xl mb-2 tracking-wide">
         CREDIT SCORE
       </h2>
 

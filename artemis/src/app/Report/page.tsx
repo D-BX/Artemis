@@ -40,8 +40,8 @@ export default async function Report() {
       <div className="relative z-10 flex flex-col items-center px-4 pt-24 space-y-16">
         {/* Header */}
         <div className="text-center">
-          <h1 className="font-mono text-5xl md:text-6xl text-[#FFE8B3] drop-shadow-md">
-            Credit Report
+          <h1 className="font-modern-antiqua text-5xl md:text-6xl text-[#FFE8B3] drop-shadow-md">
+            CREDIT REPORT
           </h1>
           <p className="font-mono text-xl md:text-2xl text-white/90 mt-4">
             Your personalized results
@@ -55,7 +55,7 @@ export default async function Report() {
 
         {/* CREDIT USAGE SECTION */}
         <div className="text-center">
-          <h2 className="font-serif text-[#FFE8B3] text-3xl md:text-4xl mb-4">
+          <h2 className="font-modern-antiqua text-[#FFE8B3] text-6xl md:text-4xl mb-4">
             CREDIT USAGE
           </h2>
           <p className="font-mono text-white/90 mb-6">

@@ -47,7 +47,7 @@ export default function TransactionsTable({
       {/* Outer container */}
       <div className="relative overflow-hidden rounded-[28px] bg-[#2f2d54] p-5 md:p-7">
         {/* Title at top */}
-        <h2 className="font-mono tracking-[0.18em] text-[clamp(28px,4vw,36px)] text-[#FFE8B3] text-center mb-6">
+        <h2 className="font-modern-antiqua tracking-[0.18em] text-[clamp(28px,4vw,36px)] text-[#FFE8B3] text-center mb-6">
           {title}
         </h2>
 
