@@ -3,7 +3,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import shap
-from credit_risk_model import CreditRiskModel
+try:
+    from .credit_risk_model import CreditRiskModel
+except ImportError:
+    from credit_risk_model import CreditRiskModel
 
 class ModelInterpreter:
     #this is where the XAI comes in - explaining decisions
@@ -177,6 +180,14 @@ class ModelInterpreter:
         return explanation_df
 
     def analyze_feature_interactions(self, feature1, feature2, save_path=None):
+        """
+        Analyze interaction between two features
+
+        Args:
+            feature1: First feature name
+            feature2: Second feature name
+            save_path: Path to save plot
+        """
         if self.shap_values is None:
             self.compute_shap_values()
 
