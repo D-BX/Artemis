@@ -7,7 +7,7 @@ export default function GachaPage(){
     const [showInventory, setShowInventory] = useState(false);
     const [selectedItemId, setSelectedItemId] = useState(1); // Track selected item by ID
 
-    // for gacha roll 
+    // for gacha roll
     const [showRoll, setShowRoll] = useState(false);
     const [rolledItem, setRolledItem] = useState(null);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -166,7 +166,7 @@ export default function GachaPage(){
 
                         {/* Header */}
                         <h2 className="font-modern-antiqua text-5xl text-white text-center mb-12">
-                            INVENTORY
+                            CHOOSE YOUR ASSISTANT
                         </h2>
 
                         {/* Inventory Grid */}
