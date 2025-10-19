@@ -1,9 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-//import About from "../About";
 
 interface MappedCustomer {
   customer_id: string;
@@ -16,6 +13,13 @@ interface MappedCustomer {
 export default function LandingPage(){
     const [firstName, setFirstName] = useState<string>("");
     const [showTyping, setShowTyping] = useState<boolean>(false);
+    const [animalId, setAnimalId] = useState(1);
+
+    const inventoryItems = [
+        { id: 1, name: "Rabbit", rarity: "Common", image: "images/bunny.svg", logo: "/images/bunny_logo.svg" },
+        { id: 2, name: "Bear", rarity: "Rare", image: "images/bear.svg", logo: "/images/bear_logo.svg" },
+        { id: 3, name: "Deer", rarity: "Legendary", image: "images/deer.svg", logo: "/images/deer_logo.svg" },
+    ];
 
     useEffect(() => {
         const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5001";
@@ -39,25 +43,15 @@ export default function LandingPage(){
         }
 
         fetchName();
-        // Trigger typing animation after component mounts
-        setTimeout(() => setShowTyping(true), 100);
-    }, []);
 
-
-export default function LandingPage(){
-    const [animalId, setAnimalId] = useState(1);
-
-    const inventoryItems = [
-        { id: 1, name: "Rabbit", rarity: "Common", image: "images/bunny.svg", logo: "/images/bunny_logo.svg" },
-        { id: 2, name: "Bear", rarity: "Rare", image: "images/bear.svg", logo: "/images/bear_logo.svg" },
-        { id: 3, name: "Deer", rarity: "Legendary", image: "images/deer.svg", logo: "/images/deer_logo.svg" },
-    ];
-
-    useEffect(() => {
+        // Load saved animal from localStorage
         const savedId = localStorage.getItem("selectedAnimalId");
         if (savedId) {
-            setAnimalId(Number(savedId))
-        };
+            setAnimalId(Number(savedId));
+        }
+
+        // Trigger typing animation after component mounts
+        setTimeout(() => setShowTyping(true), 100);
     }, []);
 
     const currentLogo = inventoryItems.find(item => item.id === animalId)?.logo;
@@ -94,19 +88,12 @@ export default function LandingPage(){
                     width={400}
                     height={600}
                     className="object-contain"
-
                 />
                 <div className="w-full flex justify-center">
                     <p className={`font-mono text-3xl text-[#FFE8B3] text-center ${showTyping ? 'typing-text' : 'opacity-0'}`}>
                         Hello {firstName && `${firstName}, `}I am Artemis
                     </p>
                 </div>
-
-                    className="object-fill"
-                />
-                <p className="typing-text font-mono text-3xl text-[#FFE8B3] text-center">
-                    Hello, my name is Artemis
-                </p>
             </div>
 
             {/* Two Cards Section */}
