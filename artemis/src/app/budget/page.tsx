@@ -91,10 +91,10 @@ export default function BudgetPage() {
   }
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#36336A] via-[#5a5080] to-[#7a506a]" />
 
-      <div className="absolute inset-0 z-10">
+      <div className="absolute inset-0 z-10 pointer-events-none">
         <Image
           src="/images/stars-splay.svg"
           alt="stars background"
