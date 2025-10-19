@@ -5,7 +5,9 @@ export default function About(){
 
         <div className="relative grid-cols-6 gap-4 min-h-screen w-full overflow-hidden pb-8">
             <div className="absolute inset-0 bg-[#7a506a]">
-                <div className="absolute col-span-4 col-start-2 bg-red-500">01</div>
+                <div className="absolute col-span-3 col-start-1 bg-red-500">
+                    
+                </div>
             </div>
 
         </div>
