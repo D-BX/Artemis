@@ -32,9 +32,9 @@ export default function Navbar() {
           />
 
           <Link
-            href="/credit"
+            href="/Report"
             className="w-16 h-16 flex items-center justify-center"
-            aria-label="Credit"
+            aria-label="Credit Report"
           />
 
           <Link
